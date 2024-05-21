@@ -29,3 +29,16 @@
  
 }
 </div>
+
+@* @foreach (var product in Model.listMenu)
+{
+    <div>
+        <h3>@</h3>
+        <p>@product.menu_description</p>
+        <p>Price: $@product.menu_item_price</p>
+        <form method="post">
+            <input  name="productId" value="@product.Id" />
+            <input type="submit" value="Add to Cart" />
+        </form>
+    </div>
+} *@

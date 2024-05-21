@@ -130,7 +130,7 @@ namespace DiningSystem.Areas.Identity.Pages.Account
                 {
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
-                    UserName = Input.Email,
+                    UserName = Input.FirstName,
                     Email = Input.Email,
                     PhoneNumber = Input.PhoneNumber,
                     Address = Input.Address,

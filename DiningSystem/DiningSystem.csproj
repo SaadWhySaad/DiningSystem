@@ -9,6 +9,7 @@
   <ItemGroup>
     <PackageReference Include="gsap.TypeScript.DefinitelyTyped" Version="0.3.4" />
     <PackageReference Include="imagesloaded.TypeScript.DefinitelyTyped" Version="0.0.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.4" />

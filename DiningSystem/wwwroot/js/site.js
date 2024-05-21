@@ -10,6 +10,17 @@
 	Response.Redirect("~/Restaurant");
 }*/
 
-function myFunction() {
-	
+function searchContent() {
+    var searchText = document.getElementById("searchInput").value.toLowerCase();
+    var restaurantCards = document.querySelectorAll(".box");
+
+    restaurantCards.forEach(function (card) {
+        var cardText = card.textContent.toLowerCase();
+        if (cardText.includes(searchText)) {
+            card.style.display = "block"; 
+        } else {
+            card.style.display = "none"; 
+        }
+    });
 }
+

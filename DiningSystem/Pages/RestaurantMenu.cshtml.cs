@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Data.SqlClient;
@@ -6,8 +7,11 @@ using System.Security.Principal;
 
 namespace DiningSystem.Pages
 {
+
     public class RestaurantMenuModel : PageModel
+        
     {
+        
         [FromRoute]
         public string id { get; set; }
         public List<RestaurantMenu> listMenu = new List<RestaurantMenu>();
@@ -18,10 +22,12 @@ namespace DiningSystem.Pages
             _configuration = configuration;
         }
 
+        
 
 
         public void OnGet()
         {
+
             string connection = _configuration.GetConnectionString("DefaultConnection");
             using (SqlConnection con = new SqlConnection(connection))
             {
@@ -45,7 +51,10 @@ namespace DiningSystem.Pages
                 }
             }
         }
+
+        
     }
+       
 
     public class RestaurantMenu
     {

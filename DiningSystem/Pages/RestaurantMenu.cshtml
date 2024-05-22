@@ -3,9 +3,7 @@
 @{
 }
 
-@section Scripts{
-    <script src="~/js/site.js"></script>
-}
+
 
 
 <div class="wrap">
@@ -23,22 +21,25 @@
             <p class="description">@item.menu_description</p>
                 <p class="description">@item.menu_item_price</p>
         </div>
-            <a onclick="myFunction()" class="button">Add to Cart</a>
+            <form method="post" asp-page-handler="AddToCart">
+                <input type="hidden" name="productId" value="@item.Id" />
+                <button type="submit" class="btn btn-primary">Add to Cart</button>
+            </form>
             
     </div>
  
 }
 </div>
 
-@* @foreach (var product in Model.listMenu)
+@if(!string.IsNullOrEmpty(ViewData["Message"] as string))
 {
-    <div>
-        <h3>@</h3>
-        <p>@product.menu_description</p>
-        <p>Price: $@product.menu_item_price</p>
-        <form method="post">
-            <input  name="productId" value="@product.Id" />
-            <input type="submit" value="Add to Cart" />
-        </form>
-    </div>
-} *@
+    <div>@ViewData["Message"]</div>
+}
+
+else
+{
+    <div>@ViewData["Message"]</div>
+}
+
+
+

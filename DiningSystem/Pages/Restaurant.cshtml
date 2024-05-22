@@ -30,9 +30,20 @@
 
 
 @*Adding Cards for restaurnat*@
-<div>
+@* <div>
     <input type="text" id="searchInput" placeholder="Search..." oninput="searchContent()" />
+</div> *@
+
+<div class="search-container">
+    <div class="search-box">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search..." oninput="searchContent()" />
+        <i class="fa fa-search search-icon"></i>
+    </div>
 </div>
+
+
+
+
 
 
 <div class="wrap">
@@ -78,5 +89,10 @@
         <a asp-route-id="" asp-page="/RestaurantMenu" class="button">Explore Menu</a>
 
     </div>
+    
 </div>
+
+
+
+
 

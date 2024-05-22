@@ -1,0 +1,180 @@
+﻿@page
+@model DiningSystem.Pages.CartModel
+@{
+    ViewData["Title"] = "Your Cart";
+}
+
+@* <h2 class="text-center mb-4">Your Cart</h2>
+
+<div class="table-responsive text-light">
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Menu Item</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CartItems)
+            {
+                <tr>
+                    <td class="text-light">@item.MenuItem</td>
+                    <td class="text-light">@item.Price</td>
+                    <td>
+                        <form method="post" asp-page-handler="UpdateCart">
+                            <input type="hidden" value="@item.ItemId" name="@item.Quantity" />
+                            <div class="input-group">
+                                <input type="number" class="form-control" value="@item.Quantity" name="@item.Quantity" min="1" />
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-outline-primary">Update</button>
+                                </div>
+                            </div>
+                        </form>
+                    </td>
+                    <td class="text-light">@(item.Price * item.Quantity)</td>
+                    <td>
+                        <form method="post" asp-page-handler="RemoveFromCart">
+                            <input type="hidden" asp-for="@item.ItemId" />
+                            <button type="submit" class="btn btn-outline-danger">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="text-right">
+    <h4>Total Amount: @Model.TotalAmount</h4>
+</div>
+ *@
+
+
+
+
+
+
+
+@* <h2>Your Cart</h2>
+
+@if (Model.CartItems.Count == 0)
+{
+    <p>Your cart is empty.</p>
+}
+else
+{
+    <form method="post" asp-page-handler="UpdateCart">
+        <table class="table text-light">
+            <thead>
+                <tr>
+                    <th>Menu Item</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.CartItems.Count; i++)
+                {
+                    <tr>
+                        <td>@Model.CartItems[i].MenuItem</td>
+                        <td>@Model.CartItems[i].Price</td>
+                        <td>
+                            <input type="number" name="CartItems[@i].Quantity" value="@Model.CartItems[i].Quantity" min="1" />
+                            <input type="hidden" name="CartItems[@i].ItemId" value="@Model.CartItems[i].ItemId" />
+                        </td>
+                        <td>@(Model.CartItems[i].Price * Model.CartItems[i].Quantity)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <h3 class="text-right">Total Amount: @Model.TotalAmount</h3>
+        <button type="submit" class="btn btn-primary btnCheckOut">Update Cart</button>
+        <button type="button" class="btn btn-success btnCheckOut" asp-page="/Checkout">Checkout</button>
+    </form>
+} *@
+
+
+@* <h2>Your Cart</h2>
+
+<form method="post" asp-page-handler="UpdateCart">
+    <table class="table text-light">
+        <thead>
+            <tr>
+                <th>Menu Item</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.CartItems.Count; i++)
+            {
+                <tr>
+                    <td>@Model.CartItems[i].MenuItem</td>
+                    <td>@Model.CartItems[i].Price</td>
+                    <td>
+                        <input type="number" name="CartItems[@i].Quantity" value="@Model.CartItems[i].Quantity" min="1" />
+                        <input type="hidden" name="CartItems[@i].ItemId" value="@Model.CartItems[i].ItemId" />
+                    </td>
+                    <td>@(Model.CartItems[i].Price * Model.CartItems[i].Quantity)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <h3>Total Amount: @Model.TotalAmount</h3>
+    <button type="submit" class="btn btn-primary">Update Cart</button>
+    <a class="btn btn-success" asp-page="/Checkout">Checkout</a>
+</form>
+
+
+ *@
+
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Your Cart</h2>
+
+    <form method="post" asp-page-handler="UpdateCart">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Menu Item</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (int i = 0; i < Model.CartItems.Count; i++)
+                    {
+                        <tr class="text-light">
+                            <td>@Model.CartItems[i].MenuItem</td>
+                            <td>@Model.CartItems[i].Price</td>
+                            <td>
+                                <input type="hidden" name="CartItems[@i].ItemId" value="@Model.CartItems[i].ItemId" />
+                                <div class="input-group">
+                                    <input type="number" class="form-control" name="CartItems[@i].Quantity" value="@Model.CartItems[i].Quantity" min="1" />
+                                </div>
+                            </td>
+                            <td>@(Model.CartItems[i].Price * Model.CartItems[i].Quantity)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h4>Total Amount: @Model.TotalAmount</h4>
+            </div>
+            <div class="col-md-6 text-right">
+                <button type="submit" class="btn btn-primary">Update Cart</button>
+                <a class="btn btn-success" asp-page="/Checkout">Checkout</a>
+            </div>
+        </div>
+    </form>
+</div>

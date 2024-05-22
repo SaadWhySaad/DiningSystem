@@ -1,0 +1,171 @@
+﻿@page
+@model DiningSystem.Pages.CheckoutModel
+@{
+}
+
+@* <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Checkout</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="dineInOrDelivery">Choose your option:</label>
+            <select class="form-control" id="dineInOrDelivery" asp-for="CheckoutOption">
+                <option value="DineIn">Dine In</option>
+                <option value="Delivery">Delivery</option>
+            </select>
+        </div>
+
+        <div id="dineInOptions" class="d-none">
+            <h4>Dine In Details</h4>
+            <div class="form-group">
+                <label asp-for="DineInDate">Date</label>
+                <input type="date" class="form-control" asp-for="DineInDate" />
+            </div>
+            <div class="form-group">
+                <label asp-for="DineInTime">Time</label>
+                <input type="time" class="form-control" asp-for="DineInTime" />
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfPersons">Number of Persons</label>
+                <input type="number" class="form-control" asp-for="NumberOfPersons" min="1" />
+            </div>
+        </div>
+
+        <div id="deliveryOptions" class="d-none">
+            <h4>Delivery Details</h4>
+            <div class="form-group">
+                <label asp-for="DeliveryAddress">Address</label>
+                <input type="text" class="form-control" asp-for="DeliveryAddress" />
+            </div>
+        </div>
+
+        <h4>Payment Details</h4>
+        <div class="form-group">
+            <label asp-for="CardNumber">Card Number</label>
+            <input type="text" class="form-control" asp-for="CardNumber" />
+        </div>
+        <div class="form-group">
+            <label asp-for="ExpirationDate">Expiration Date</label>
+            <input type="text" class="form-control" asp-for="ExpirationDate" placeholder="MM/YY" />
+        </div>
+        <div class="form-group">
+            <label asp-for="CVV">CVV</label>
+            <input type="text" class="form-control" asp-for="CVV" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dineInOrDelivery').change(function () {
+            var selectedOption = $(this).val();
+            if (selectedOption === "DineIn") {
+                $('#dineInOptions').removeClass('d-none');
+                $('#deliveryOptions').addClass('d-none');
+            } else if (selectedOption === "Delivery") {
+                $('#dineInOptions').addClass('d-none');
+                $('#deliveryOptions').removeClass('d-none');
+            } else {
+                $('#dineInOptions').addClass('d-none');
+                $('#deliveryOptions').addClass('d-none');
+            }
+        }).trigger('change');
+    });
+</script>
+
+ *@
+
+
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Checkout</h2>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="dineInOrDelivery">Choose your option:</label>
+            <select class="form-control" id="dineInOrDelivery" asp-for="CheckoutOption">
+                <option value="DineIn">Dine In</option>
+                <option value="Delivery">Delivery</option>
+            </select>
+            <span class="text-danger" asp-validation-for="CheckoutOption"></span>
+        </div>
+
+        <div id="dineInOptions" class="d-none">
+            <h4>Dine In Details</h4>
+            <div class="form-group">
+                <label asp-for="DineInDate">Date</label>
+                <input type="date" class="form-control" asp-for="DineInDate" />
+                <span class="text-danger" asp-validation-for="DineInDate"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DineInTime">Time</label>
+                <input type="time" class="form-control" asp-for="DineInTime" />
+                <span class="text-danger" asp-validation-for="DineInTime"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NumberOfPersons">Number of Persons</label>
+                <input type="number" class="form-control" asp-for="NumberOfPersons" min="1" />
+                <span class="text-danger" asp-validation-for="NumberOfPersons"></span>
+            </div>
+        </div>
+
+        <div id="deliveryOptions" class="d-none">
+            <h4>Delivery Details</h4>
+            <div class="form-group">
+                <label asp-for="DeliveryAddress">Address</label>
+                <input type="text" class="form-control" asp-for="DeliveryAddress" />
+                <span class="text-danger" asp-validation-for="DeliveryAddress"></span>
+            </div>
+        </div>
+
+        <h4>Payment Details</h4>
+        <div class="form-group">
+            <label asp-for="CardNumber">Card Number</label>
+            <input type="text" class="form-control" asp-for="CardNumber" />
+            <span class="text-danger" asp-validation-for="CardNumber"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ExpirationDate">Expiration Date</label>
+            <input type="text" class="form-control" asp-for="ExpirationDate" placeholder="MM/YY" />
+            <span class="text-danger" asp-validation-for="ExpirationDate"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CVV">CVV</label>
+            <input type="text" class="form-control" asp-for="CVV" />
+            <span class="text-danger" asp-validation-for="CVV"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#dineInOrDelivery').change(function () {
+            var selectedOption = $(this).val();
+            if (selectedOption === "DineIn") {
+                $('#dineInOptions').removeClass('d-none');
+                $('#deliveryOptions').addClass('d-none');
+            } else if (selectedOption === "Delivery") {
+                $('#dineInOptions').addClass('d-none');
+                $('#deliveryOptions').removeClass('d-none');
+            } else {
+                $('#dineInOptions').addClass('d-none');
+                $('#deliveryOptions').addClass('d-none');
+            }
+        }).trigger('change');
+    });
+</script>
+

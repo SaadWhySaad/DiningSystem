@@ -9,7 +9,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace DiningSystem.Pages
 {
-    [Authorize]
+    /*[Authorize]*/
     public class UserModel : PageModel
     {
         public List<RestaurantInfo> listRestaurant = new List<RestaurantInfo>();

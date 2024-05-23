@@ -64,6 +64,12 @@ namespace DiningSystem.Pages
                 return RedirectToPage("/Account/Login", new { area = "Identity" });
             }
 
+            var user = _userManager.GetUserAsync(User).Result;
+            if(_userManager.IsInRoleAsync(user, "admin").Result)
+            {
+                return Page();
+                ViewData["Message"] = "Admins cannot add items to the cart";
+            }
 
 
             string connectionString = _configuration.GetConnectionString("DefaultConnection");

@@ -1,127 +1,84 @@
+using DiningSystem.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Stripe;
 using System.ComponentModel.DataAnnotations;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Security.Claims;
 
 namespace DiningSystem.Pages
 {
     public class CheckoutModel : PageModel
     {
-        /*private readonly IConfiguration _configuration;
-
-        public CheckoutModel(IConfiguration configuration)
-        {
-            _configuration = configuration;
-        }
-
-        [BindProperty]
-        public string CheckoutOption { get; set; }
-
-        // Dine-in properties
-        [BindProperty, DataType(DataType.Date)]
-        public DateTime DineInDate { get; set; }
-
-        [BindProperty, DataType(DataType.Time)]
-        public TimeSpan DineInTime { get; set; }
-
-        [BindProperty]
-        public int NumberOfPersons { get; set; }
-
-        // Delivery properties
-        [BindProperty]
-        public string DeliveryAddress { get; set; }
-
-        // Payment properties
-        [BindProperty, Required, CreditCard]
-        public string CardNumber { get; set; }
-
-        [BindProperty, Required]
-        public string ExpirationDate { get; set; }
-
-        [BindProperty, Required]
-        public string CVV { get; set; }
-
-        public IActionResult OnPost()
-        {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
-
-            // Handle the checkout logic
-            if (CheckoutOption == "DineIn")
-            {
-                // Process dine-in details
-                // e.g., Save to database, send confirmation, etc.
-            }
-            else if (CheckoutOption == "Delivery")
-            {
-                // Process delivery details
-                // e.g., Save to database, send confirmation, etc.
-            }
-
-            // Handle payment logic here
-            // e.g., Validate payment details, process payment, etc.
-
-            // Redirect to a confirmation page or show a success message
-            return RedirectToPage("/OrderConfirmation");
-        }*/
+        
 
         private readonly IConfiguration _configuration;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public CheckoutModel(IConfiguration configuration)
+        public CheckoutModel(IConfiguration configuration, UserManager<ApplicationUser> userManager)
         {
             _configuration = configuration;
+            _userManager = userManager;
         }
 
         [BindProperty]
-        [Required(ErrorMessage = "Please choose an option.")]
+        /*[Required(ErrorMessage = "Please choose an option.")]*/
         public string CheckoutOption { get; set; }
 
         [BindProperty]
         [DataType(DataType.Date)]
-        [RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please select a date.")]
+        /*[RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please select a date.")]*/
         public DateTime? DineInDate { get; set; }
 
         [BindProperty]
         [DataType(DataType.Time)]
-        [RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please select a time.")]
+        /*[RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please select a time.")]*/
         public TimeSpan? DineInTime { get; set; }
 
         [BindProperty]
         [Range(1, int.MaxValue, ErrorMessage = "Please enter a valid number of persons.")]
-        [RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please enter the number of persons.")]
+        /*[RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please enter the number of persons.")]*/
         public int? NumberOfPersons { get; set; }
 
         [BindProperty]
-        [RequiredIf(nameof(CheckoutOption), "Delivery", ErrorMessage = "Please enter a delivery address.")]
+        /*[RequiredIf(nameof(CheckoutOption), "Delivery", ErrorMessage = "Please enter a delivery address.")]*/
         public string DeliveryAddress { get; set; }
 
         [BindProperty]
         [CreditCard(ErrorMessage = "Please enter a valid card number.")]
-        [Required(ErrorMessage = "Please enter your card number.")]
+        /*[Required(ErrorMessage = "Please enter your card number.")]*/
         public string CardNumber { get; set; }
 
         [BindProperty]
-        [Required(ErrorMessage = "Please enter the expiration date.")]
+        /*[Required(ErrorMessage = "Please enter the expiration date.")]*/
         [RegularExpression(@"^(0[1-9]|1[0-2])\/?([0-9]{2})$", ErrorMessage = "Please enter a valid expiration date (MM/YY).")]
         public string ExpirationDate { get; set; }
 
         [BindProperty]
-        [Required(ErrorMessage = "Please enter the CVV.")]
+        /*[Required(ErrorMessage = "Please enter the CVV.")]*/
         [RegularExpression(@"^[0-9]{3,4}$", ErrorMessage = "Please enter a valid CVV.")]
         public string CVV { get; set; }
 
+
+
+
+
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
+            /*if (!ModelState.IsValid)
             {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
+                foreach (var error in errors)
+                {
+                    Debug.WriteLine(error);
+                }
                 return Page();
-            }
+            }*/
 
             // Get the user ID
-            int userId = int.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier));
+            string userId = _userManager.GetUserId(User);
 
             // Process the order
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
@@ -129,8 +86,8 @@ namespace DiningSystem.Pages
             {
                 connection.Open();
                 string sql = @"
-                    INSERT INTO Orders (UserId, OrderType, DineInDate, DineInTime, NumberOfPersons, DeliveryAddress, CardNumber, ExpirationDate, CVV)
-                    VALUES (@UserId, @OrderType, @DineInDate, @DineInTime, @NumberOfPersons, @DeliveryAddress, @CardNumber, @ExpirationDate, @CVV)";
+                    INSERT INTO Orders (UserId, OrderType, DineInDate, DineInTime, NumberOfPersons, DeliveryAddress, CardNumber, ExpirationDate, CVV, order_status)
+                    VALUES (@UserId, @OrderType, @DineInDate, @DineInTime, @NumberOfPersons, @DeliveryAddress, @CardNumber, @ExpirationDate, @CVV, @order_status)";
 
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
@@ -143,7 +100,10 @@ namespace DiningSystem.Pages
                     command.Parameters.AddWithValue("@CardNumber", CardNumber);
                     command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
                     command.Parameters.AddWithValue("@CVV", CVV);
+                    command.Parameters.AddWithValue("@order_status", "pending");
                     command.ExecuteNonQuery();
+
+                   
                 }
             }
 

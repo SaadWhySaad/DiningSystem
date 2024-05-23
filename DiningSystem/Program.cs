@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using DiningSystem.Pages;
+using Microsoft.CodeAnalysis.Scripting;
+using Stripe;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +27,8 @@ builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.R
     .AddRoles<IdentityRole>()
 	.AddEntityFrameworkStores<ApplicationDbContext>();
 
+
+StripeConfiguration.ApiKey = builder.Configuration.GetSection("Stripe")["SecretKey"];
 
 var app = builder.Build();
 

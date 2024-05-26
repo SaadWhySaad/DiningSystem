@@ -8,17 +8,14 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authorization;
 using DiningSystem.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Logging;
+
 
 namespace DiningSystem.Areas.Identity.Pages.Account
 {
@@ -88,7 +85,8 @@ namespace DiningSystem.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-            public string PhoneNumber { get; set; }
+			[RegularExpression(@"^((\+92)|(0))\d{10}$", ErrorMessage = "Please enter a valid phone number.")]
+			public string PhoneNumber { get; set; }
 
             [Required]
             public string Address { get; set; }

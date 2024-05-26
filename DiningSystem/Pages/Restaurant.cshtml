@@ -29,10 +29,7 @@
 
 
 
-@*Adding Cards for restaurnat*@
-@* <div>
-    <input type="text" id="searchInput" placeholder="Search..." oninput="searchContent()" />
-</div> *@
+
 
 <div class="search-container">
     <div class="search-box">
@@ -55,7 +52,8 @@
                 <img class="box-image" src="/css/images/@(item.Image).jpg" alt="banner1">
                 <div class="title-flex">
                     <h3 class="box-title">@item.r_name</h3>
-                    <p class="user-follow-info">@item.id</p>
+                    <p class="user-follow-info">@item.timings</p>
+                    <p class="user-follow-info">Max People Served Per Table: @item.max_people</p>
                 </div>
                 <p class="description">@item.r_description</p>
             </div>

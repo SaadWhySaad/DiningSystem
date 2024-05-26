@@ -172,7 +172,11 @@
 <div class="void voidNew" id="void">
 	<div class="crop">
 		<ul class="ullist" id="card-list" style="--count: 6;">
-			<li class="lilist"><div class="cardtext"><span class="model-name">Gretel-ACTGAN</span><span>Model for generating highly dimensional, mostly numeric, tabular data</span></div></li>
+			@foreach (var item in Model.listReview)
+			{
+				<li class="lilist"><div class="cardtext"><span class="model-name">@item.user_name <br /><span style="color:red">@item.restaurant_name</span></span><span>@item.user_review</span></div></li>
+			}
+			
 			<li class="lilist"><div class="cardtext"><span class="model-name">Gretel-ACTGAN</span><span>Model for generating highly dimensional, mostly numeric, tabular data</span></div></li>
 			<li class="lilist"><div class="cardtext"><span class="model-name">Gretel-ACTGAN</span><span>Model for generating highly dimensional, mostly numeric, tabular data</span></div></li>
 			<li class="lilist"><div class="cardtext"><span class="model-name">Gretel-ACTGAN</span><span>Model for generating highly dimensional, mostly numeric, tabular data</span></div></li>

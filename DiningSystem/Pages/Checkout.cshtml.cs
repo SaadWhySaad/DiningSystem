@@ -24,40 +24,40 @@ namespace DiningSystem.Pages
         }
 
         [BindProperty]
-        /*[Required(ErrorMessage = "Please choose an option.")]*/
+        [Required(ErrorMessage = "Please choose an option.")]
         public string CheckoutOption { get; set; }
 
         [BindProperty]
         [DataType(DataType.Date)]
-        /*[RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please select a date.")]*/
+        [RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please select a date.")]
         public DateTime? DineInDate { get; set; }
 
         [BindProperty]
         [DataType(DataType.Time)]
-        /*[RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please select a time.")]*/
+        [RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please select a time.")]
         public TimeSpan? DineInTime { get; set; }
 
         [BindProperty]
         [Range(1, int.MaxValue, ErrorMessage = "Please enter a valid number of persons.")]
-        /*[RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please enter the number of persons.")]*/
+        [RequiredIf(nameof(CheckoutOption), "DineIn", ErrorMessage = "Please enter the number of persons.")]
         public int? NumberOfPersons { get; set; }
 
         [BindProperty]
-        /*[RequiredIf(nameof(CheckoutOption), "Delivery", ErrorMessage = "Please enter a delivery address.")]*/
-        public string DeliveryAddress { get; set; }
+        [RequiredIf(nameof(CheckoutOption), "Delivery", ErrorMessage = "Please enter a delivery address.")]
+        public string? DeliveryAddress { get; set; }
 
         [BindProperty]
         [CreditCard(ErrorMessage = "Please enter a valid card number.")]
-        /*[Required(ErrorMessage = "Please enter your card number.")]*/
+        [Required(ErrorMessage = "Please enter your card number.")]
         public string CardNumber { get; set; }
 
         [BindProperty]
-        /*[Required(ErrorMessage = "Please enter the expiration date.")]*/
+        [Required(ErrorMessage = "Please enter the expiration date.")]
         [RegularExpression(@"^(0[1-9]|1[0-2])\/?([0-9]{2})$", ErrorMessage = "Please enter a valid expiration date (MM/YY).")]
         public string ExpirationDate { get; set; }
 
         [BindProperty]
-        /*[Required(ErrorMessage = "Please enter the CVV.")]*/
+        [Required(ErrorMessage = "Please enter the CVV.")]
         [RegularExpression(@"^[0-9]{3,4}$", ErrorMessage = "Please enter a valid CVV.")]
         public string CVV { get; set; }
 
@@ -67,7 +67,7 @@ namespace DiningSystem.Pages
 
         public IActionResult OnPost()
         {
-            /*if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var errors = ModelState.Values.SelectMany(v => v.Errors);
                 foreach (var error in errors)
@@ -75,7 +75,7 @@ namespace DiningSystem.Pages
                     Debug.WriteLine(error);
                 }
                 return Page();
-            }*/
+            }
 
             // Get the user ID
             string userId = _userManager.GetUserId(User);
@@ -102,8 +102,6 @@ namespace DiningSystem.Pages
                     command.Parameters.AddWithValue("@CVV", CVV);
                     command.Parameters.AddWithValue("@order_status", "pending");
                     command.ExecuteNonQuery();
-
-                   
                 }
             }
 

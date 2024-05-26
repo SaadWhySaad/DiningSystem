@@ -16,7 +16,7 @@
         if (User.IsInRole("admin"))
         {
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><strong>Hello Admin, @User.Identity?.Name!.ToString()</strong></a>
+                <a class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><strong>Hello Admin, @User.Identity.Name!.ToString()</strong></a>
                 <ul class="dropdown-menu">
                     <li><a class="dropdown-item" asp-area="Identity" asp-page="/Account/Manage/Index">Profile</a></li>
                     <li><hr class="dropdown-divider"></li>

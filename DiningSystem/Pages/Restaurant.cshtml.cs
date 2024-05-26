@@ -57,6 +57,9 @@ namespace DiningSystem.Pages
                                 restaurant.r_description = reader.GetString(2);
                                 restaurant.Image = "banner_" + restaurant.id;
                                 restaurant.restaurnat_admin = reader.GetString(3);
+                                restaurant.max_people = reader.GetInt32(4);
+                                restaurant.timings = reader.GetString(5);
+
                                 listRestaurant.Add(restaurant);
                             }
                         }
@@ -77,6 +80,11 @@ namespace DiningSystem.Pages
         public string r_name { get; set; }
         public string r_description { get; set; }
         public string Image {  get; set; }
+
+        public int max_people {  get; set; }
+        public string timings {  get; set; }
         public string restaurnat_admin { get; set; }
+
+
     }
 }

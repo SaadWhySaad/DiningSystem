@@ -1,12 +1,10 @@
 ﻿
-
 @page "{id}"
 @model DiningSystem.Pages.RestaurantMenuModel
 @{
 @using DiningSystem.Models
     @using Microsoft.AspNetCore.Identity
     @inject UserManager<ApplicationUser> UserManager
-
     @inject SignInManager<ApplicationUser> SignInManager
 }
 
@@ -28,7 +26,7 @@
             <p class="description">@item.menu_description</p>
                 <p class="description">Rs. @item.menu_item_price</p>
         </div>
-            @if (!UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Admin").Result)
+            @if (!UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "admin").Result)
             {
                 <form method="post" asp-page-handler="AddToCart">
                     <input type="hidden" name="productId" value="@item.Id" />

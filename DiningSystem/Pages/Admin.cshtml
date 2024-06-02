@@ -3,4 +3,249 @@
 @{
 }
 
-<h2 class="text-center">Welcome Admin</h2>
+
+
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Admin Dashboard</h2>
+
+    <!-- Search bar -->
+    <div class="row mb-3">
+        <div class="col-md-6 offset-md-6">
+            <input id="searchInput" type="text" class="form-control" placeholder="Search by User Name">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card animated fadeIn">
+                <div class="card-header">
+                    <h4>Orders</h4>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Order ID</th>
+                                    <th scope="col">User Name</th>
+                                    <th scope="col">Order Type</th>
+                                    <th scope="col">Dine In Date</th>
+                                    <th scope="col">Dine In Time</th>
+                                    <th scope="col">Number of Persons</th>
+                                    <th scope="col">Delivery Address</th>
+                                    <th scope="col">Order Status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orderTableBody">
+                                @foreach (var order in Model.Orders)
+                                {
+                                    <tr>
+                                        <td>@order.OrderId</td>
+                                        <td>@order.UserName</td>
+                                        <td>@order.OrderType</td>
+                                        <td>@order.DineInDate?.ToString("yyyy-MM-dd")</td>
+                                        <td>@order.DineInTime?.ToString(@"hh\:mm")</td>
+                                        <td>@order.NumberOfPersons</td>
+                                        <td>@order.DeliveryAddress</td>
+                                        <td id="orderStatus_@order.OrderId">@order.OrderStatus</td>
+                                        <td>
+                                            @if (order.OrderStatus == "pending")
+                                            {
+                                                <button class="btn btn-success" onclick="updateOrderStatus(@order.OrderId, 'completed')">Complete</button>
+                                                <button class="btn btn-danger" onclick="updateOrderStatus(@order.OrderId, 'cancelled')">Cancel</button>
+                                                <button class="btn btn-warning" onclick="editOrder(@order.OrderId, '@order.DineInDate', '@order.DineInTime', @order.NumberOfPersons)">Edit</button>
+                                            }
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form id="antiForgeryForm">
+    @Html.AntiForgeryToken()
+</form>
+
+<!-- Modal for Editing Orders -->
+<div class="modal fade" id="editOrderModal" tabindex="-1" role="dialog" aria-labelledby="editOrderModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editOrderModalLabel">Edit Order</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" id="editOrderId">
+                <div class="form-group">
+                    <label for="editDineInDate">Dine In Date</label>
+                    <input type="date" class="form-control" id="editDineInDate">
+                </div>
+                <div class="form-group">
+                    <label for="editDineInTime">Dine In Time</label>
+                    <input type="time" class="form-control" id="editDineInTime">
+                </div>
+                <div class="form-group">
+                    <label for="editNumberOfPersons">Number of Persons</label>
+                    <input type="number" class="form-control" id="editNumberOfPersons" min="1">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="saveEditOrder">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        toastr.options = {
+            closeButton: true,
+            debug: false,
+            newestOnTop: false,
+            progressBar: true,
+            positionClass: "toast-bottom-right",
+            preventDuplicates: false,
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "1000",
+            timeOut: "5000",
+            extendedTimeOut: "1000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        };
+
+        // Function to filter orders by user name
+        function filterOrders() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("orderTableBody");
+            tr = table.getElementsByTagName("tr");
+
+            // Loop through all table rows, and hide those who don't match the search query
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1]; // Index 1 is the User Name column
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        // Attach event listener to search input
+        document.getElementById("searchInput").addEventListener("keyup", function () {
+            filterOrders();
+        });
+
+        // Function to update order status
+        function updateOrderStatus(orderId, status) {
+            const token = document.querySelector('#antiForgeryForm input[name="__RequestVerificationToken"]').value;
+            fetch('/Admin?handler=UpdateOrderStatus', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': token
+                },
+                body: JSON.stringify({ orderId: orderId, status: status })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        if (status === 'completed') {
+                            toastr.success('Order has been completed successfully!', 'Success');
+                        } else if (status === 'cancelled') {
+                            toastr.error('Order has been cancelled.', 'Cancelled');
+                        }
+                        document.getElementById(`orderStatus_${orderId}`).textContent = status;
+                        setTimeout(() => {
+                            location.reload();
+                        }, 3000);
+                    } else {
+                        toastr.error(`Failed to ${status} order.`, 'Error');
+                    }
+                })
+                .catch(error => {
+                    console.error(`Error updating order status:`, error);
+                    toastr.error(`Error ${status} order.`, 'Error');
+                });
+        }
+
+        function editOrder(orderId, dineInDate, dineInTime, numberOfPersons) {
+            $('#editOrderId').val(orderId);
+            $('#editDineInDate').val(dineInDate);
+            $('#editDineInTime').val(dineInTime);
+            $('#editNumberOfPersons').val(numberOfPersons);
+            $('#editOrderModal').modal('show');
+        }
+
+        $('#saveEditOrder').click(function () {
+            const orderId = $('#editOrderId').val();
+            const dineInDate = $('#editDineInDate').val();
+            const dineInTime = $('#editDineInTime').val();
+            const numberOfPersons = $('#editNumberOfPersons').val();
+            const token = document.querySelector('#antiForgeryForm input[name="__RequestVerificationToken"]').value;
+
+            fetch('/Admin?handler=EditOrder', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'RequestVerificationToken': token
+                },
+                body: JSON.stringify({
+                    orderId: orderId,
+                    dineInDate: dineInDate,
+                    dineInTime: dineInTime,
+                    numberOfPersons: numberOfPersons
+                })
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        toastr.success('Order has been updated successfully!', 'Success');
+                        $('#editOrderModal').modal('hide');
+                        setTimeout(() => {
+                            location.reload();
+                        }, 3000);
+                    } else {
+                        toastr.error('Failed to update order.', 'Error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error updating order:', error);
+                    toastr.error('Error updating order.', 'Error');
+                });
+        });
+    </script>
+}

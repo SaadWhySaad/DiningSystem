@@ -4,47 +4,79 @@
     ViewData["Title"] = "Your Cart";
 }
 
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
 <div class="container mt-5 mb-5">
     <h2 class="text-center mb-4">Your Cart</h2>
 
-    <form method="post" asp-page-handler="UpdateCart">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col">Menu Item</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Quantity</th>
-                        <th scope="col">Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for (int i = 0; i < Model.CartItems.Count; i++)
-                    {
-                        <tr class="text-light">
-                            <td>@Model.CartItems[i].MenuItem</td>
-                            <td>@Model.CartItems[i].Price</td>
-                            <td>
-                                <input type="hidden" name="CartItems[@i].ItemId" value="@Model.CartItems[i].ItemId" />
-                                <div class="input-group">
-                                    <input type="number" class="form-control" name="CartItems[@i].Quantity" value="@Model.CartItems[i].Quantity" min="1" />
-                                </div>
-                            </td>
-                            <td>@(Model.CartItems[i].Price * Model.CartItems[i].Quantity)</td>
+    @if (Model.CartItems.Count == 0)
+    {
+        <p class="text-center">Your cart is empty.</p>
+    }
+    else
+    {
+        <form method="post" asp-page-handler="RemoveItem">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Menu Item</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                            <th scope="col">Action</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < Model.CartItems.Count; i++)
+                        {
+                            <tr class="text-light" data-index="@i">
+                                <td>@Model.CartItems[i].MenuItem</td>
+                                <td class="price">@Model.CartItems[i].Price</td>
+                                <td>
+                                    <input type="hidden" name="CartItems[@i].ItemId" value="@Model.CartItems[i].ItemId" />
+                                    <div class="input-group">
+                                        <input type="number" class="form-control quantity" name="CartItems[@i].Quantity" value="@Model.CartItems[i].Quantity" min="1" onchange="updateItemTotal(this)" />
+                                    </div>
+                                </td>
+                                <td class="item-total">@Model.CartItems[i].Price * @Model.CartItems[i].Quantity</td>
+                                <td>
+                                    <button type="submit" name="remove" value="@Model.CartItems[i].ItemId" class="btn btn-danger">Remove</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </form>
 
         <div class="row mt-4">
             <div class="col-md-6">
-                <h4>Total Amount: @Model.TotalAmount</h4>
+                <h4>Total Amount: <span id="totalAmount">@Model.TotalAmount</span></h4>
             </div>
             <div class="col-md-6 text-right">
-                <button type="submit" class="btn btn-primary">Update Cart</button>
                 <a class="btn btn-success" asp-page="/Checkout">Checkout</a>
             </div>
         </div>
-    </form>
+    }
+
+    <script>
+        function updateItemTotal(element) {
+            const quantity = parseInt(element.value);
+            const row = element.closest('tr');
+            const price = parseFloat(row.querySelector('.price').innerText);
+            const itemTotal = price * quantity;
+            row.querySelector('.item-total').innerText = itemTotal.toFixed(2);
+
+            updateTotalAmount();
+        }
+
+        function updateTotalAmount() {
+            let totalAmount = 0;
+            document.querySelectorAll('.item-total').forEach(function (itemTotal) {
+                totalAmount += parseFloat(itemTotal.innerText);
+            });
+            document.getElementById('totalAmount').innerText = totalAmount.toFixed(2);
+        }
+    </script>
 </div>

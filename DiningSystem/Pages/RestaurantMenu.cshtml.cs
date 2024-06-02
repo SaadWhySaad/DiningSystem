@@ -20,6 +20,7 @@ namespace DiningSystem.Pages
         public List<RestaurantMenu> listMenu = new List<RestaurantMenu>();
         private readonly IConfiguration _configuration;
         private readonly UserManager<ApplicationUser> _userManager;
+        public bool IsUserAdmin { get; set; }
         [BindProperty]
         public int ItemId {  get; set; }
         public RestaurantMenuModel(IConfiguration configuration, UserManager<ApplicationUser> userManager)
@@ -31,14 +32,26 @@ namespace DiningSystem.Pages
 
         public void OnGet()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                var user = _userManager.GetUserAsync(User).Result;
+                IsUserAdmin = _userManager.IsInRoleAsync(user, "admin").Result;
+            }
 
+            LoadMenu();
+        }
+
+
+        private void LoadMenu()
+        {
             string connection = _configuration.GetConnectionString("DefaultConnection");
             using (SqlConnection con = new SqlConnection(connection))
             {
                 con.Open();
-                string sql = "select * from restaurantMenu where r_id = " + id;
+                string sql = "select * from restaurantMenu where r_id = @Id";
                 using (SqlCommand command = new SqlCommand(sql, con))
                 {
+                    command.Parameters.AddWithValue("@Id", id);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -58,20 +71,18 @@ namespace DiningSystem.Pages
 
         public IActionResult OnPostAddToCart(int productId)
         {
-            string userId = _userManager.GetUserId(User);
-            if (userId == null)
+            if (!User.Identity.IsAuthenticated)
             {
                 return RedirectToPage("/Account/Login", new { area = "Identity" });
             }
-
             var user = _userManager.GetUserAsync(User).Result;
-            if(_userManager.IsInRoleAsync(user, "admin").Result)
+            if (_userManager.IsInRoleAsync(user, "admin").Result)
             {
+                TempData["ToastMessage"] = "Admins cannot add items to the cart";
                 return Page();
-                ViewData["Message"] = "Admins cannot add items to the cart";
             }
 
-
+            string userId = _userManager.GetUserId(User);
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -90,13 +101,14 @@ namespace DiningSystem.Pages
                     insertCommand.Parameters.AddWithValue("@ItemId", productId);
                     insertCommand.ExecuteNonQuery();
 
-                    ViewData["Message"] = "Item added to cart successfully";
+                    TempData["ToastMessage"] = "Item added to cart successfully";
                 }
                 else
                 {
-                    ViewData["Message"] = "Item already exists in the cart";
+                    TempData["ToastMessage"] = "Item already exists in the cart";
                 }
             }
+            LoadMenu();
             /*return RedirectToPage("/RestaurantMenu");*/
             return Page();
         }

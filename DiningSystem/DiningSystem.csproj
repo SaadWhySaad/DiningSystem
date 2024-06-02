@@ -13,7 +13,9 @@
 
   <ItemGroup>
     <PackageReference Include="gsap.TypeScript.DefinitelyTyped" Version="0.3.4" />
+    <PackageReference Include="Habanero" Version="3.0.1" />
     <PackageReference Include="imagesloaded.TypeScript.DefinitelyTyped" Version="0.0.4" />
+    <PackageReference Include="MailKit" Version="4.6.0" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.4" />
@@ -25,8 +27,10 @@
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
     <PackageReference Include="Parcel.AspNetCore.Middleware" Version="0.1.0" />
+    <PackageReference Include="Square" Version="37.0.1" />
     <PackageReference Include="Stripe.net" Version="44.8.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
+    <PackageReference Include="Vonage" Version="7.4.0" />
   </ItemGroup>
 
 </Project>

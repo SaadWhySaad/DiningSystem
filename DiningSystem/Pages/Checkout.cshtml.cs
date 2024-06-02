@@ -52,13 +52,15 @@ namespace DiningSystem.Pages
         public string CardNumber { get; set; }
 
         [BindProperty]
-        [Required(ErrorMessage = "Please enter the expiration date.")]
-        [RegularExpression(@"^(0[1-9]|1[0-2])\/?([0-9]{2})$", ErrorMessage = "Please enter a valid expiration date (MM/YY).")]
+        [Required]
+        [RegularExpression(@"\d{2}/\d{2}", ErrorMessage = "Expiration date must be in MM/YY format")]
+        [Display(Name = "Expiration Date")]
         public string ExpirationDate { get; set; }
 
         [BindProperty]
-        [Required(ErrorMessage = "Please enter the CVV.")]
-        [RegularExpression(@"^[0-9]{3,4}$", ErrorMessage = "Please enter a valid CVV.")]
+        [Required]
+        [RegularExpression(@"\d{3}", ErrorMessage = "CVV must be a 3-digit number")]
+        [Display(Name = "CVV")]
         public string CVV { get; set; }
 
 
@@ -69,11 +71,6 @@ namespace DiningSystem.Pages
         {
             if (!ModelState.IsValid)
             {
-                var errors = ModelState.Values.SelectMany(v => v.Errors);
-                foreach (var error in errors)
-                {
-                    Debug.WriteLine(error);
-                }
                 return Page();
             }
 
@@ -85,11 +82,34 @@ namespace DiningSystem.Pages
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                string sql = @"
-                    INSERT INTO Orders (UserId, OrderType, DineInDate, DineInTime, NumberOfPersons, DeliveryAddress, CardNumber, ExpirationDate, CVV, order_status)
-                    VALUES (@UserId, @OrderType, @DineInDate, @DineInTime, @NumberOfPersons, @DeliveryAddress, @CardNumber, @ExpirationDate, @CVV, @order_status)";
+                string getRestaurantIdSql = @"
+                SELECT DISTINCT r_id 
+                FROM restaurantMenu 
+                WHERE menu_id IN (SELECT ItemId FROM cartitems WHERE UserId = @UserId)";
+                int? restaurantId = null;
+                using (SqlCommand getRestaurantIdCommand = new SqlCommand(getRestaurantIdSql, connection))
+                {
+                    getRestaurantIdCommand.Parameters.AddWithValue("@UserId", userId);
+                    using (SqlDataReader reader = getRestaurantIdCommand.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            restaurantId = reader.GetInt32(0);
+                        }
+                    }
+                }
 
-                using (SqlCommand command = new SqlCommand(sql, connection))
+                if (restaurantId == null)
+                {
+                    // Handle the case where no restaurant ID could be found (e.g., return an error)
+                    ModelState.AddModelError(string.Empty, "Unable to determine the restaurant for your order.");
+                    return Page();
+                }
+                string insertOrderSql = @"
+                INSERT INTO Orders (UserId, OrderType, DineInDate, DineInTime, NumberOfPersons, DeliveryAddress, CardNumber, ExpirationDate, CVV, order_status, r_id)
+                VALUES (@UserId, @OrderType, @DineInDate, @DineInTime, @NumberOfPersons, @DeliveryAddress, @CardNumber, @ExpirationDate, @CVV, @order_status, @RestaurantId)";
+
+                using (SqlCommand command = new SqlCommand(insertOrderSql, connection))
                 {
                     command.Parameters.AddWithValue("@UserId", userId);
                     command.Parameters.AddWithValue("@OrderType", CheckoutOption);
@@ -101,7 +121,14 @@ namespace DiningSystem.Pages
                     command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
                     command.Parameters.AddWithValue("@CVV", CVV);
                     command.Parameters.AddWithValue("@order_status", "pending");
+                    command.Parameters.AddWithValue("@RestaurantId", restaurantId);
                     command.ExecuteNonQuery();
+                }
+                string deleteCartItemsSql = "DELETE FROM cartitems WHERE UserId = @UserId";
+                using (SqlCommand deleteCommand = new SqlCommand(deleteCartItemsSql, connection))
+                {
+                    deleteCommand.Parameters.AddWithValue("@UserId", userId);
+                    deleteCommand.ExecuteNonQuery();
                 }
             }
 

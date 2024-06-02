@@ -2,51 +2,115 @@
 @page "{id}"
 @model DiningSystem.Pages.RestaurantMenuModel
 @{
-@using DiningSystem.Models
+    @using DiningSystem.Models
     @using Microsoft.AspNetCore.Identity
     @inject UserManager<ApplicationUser> UserManager
     @inject SignInManager<ApplicationUser> SignInManager
 }
 
-
-
-
 <div class="wrap">
-
-@foreach(var item in Model.listMenu)
-{
-   
-    <div class="box">
-        <div class="box-top">
-            <img class="box-image" src="/css/images/slide1.jpg" alt="Girl Eating Pizza">
-            <div class="title-flex">
-                <h3 class="box-title">@item.menu_item</h3>
-                <p class="user-follow-info">@item.Id</p>
-            </div>
-            <p class="description">@item.menu_description</p>
+    @foreach (var item in Model.listMenu)
+    {
+        <div class="box">
+            <div class="box-top">
+                <img class="box-image" src="/css/images/slide1.jpg" alt="restaurant1">
+                <div class="title-flex">
+                    <h3 class="box-title">@item.menu_item</h3>
+                    <p class="user-follow-info">@item.Id</p>
+                </div>
+                <p class="description">@item.menu_description</p>
                 <p class="description">Rs. @item.menu_item_price</p>
-        </div>
-            @if (!UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "admin").Result)
+            </div>
+            @if (!Model.IsUserAdmin)
             {
                 <form method="post" asp-page-handler="AddToCart">
                     <input type="hidden" name="productId" value="@item.Id" />
                     <button type="submit" class="btn btn-primary">Add to Cart</button>
                 </form>
-            }  
-    </div>
- 
-}
+            }
+        </div>
+    }
 </div>
 
-@if(!string.IsNullOrEmpty(ViewData["Message"] as string))
+@if (!string.IsNullOrEmpty(ViewData["Message"] as string))
 {
-    <div>@ViewData["Message"]</div>
+    <div class="alert alert-info">@ViewData["Message"]</div>
 }
 
-else
+@if (!string.IsNullOrEmpty(TempData["ToastMessage"] as string))
 {
-    <div>@ViewData["Message"]</div>
+    <div id="custom-toast" class="custom-toast">
+        <div class="toast-body">
+            <span>@TempData["ToastMessage"]</span>
+            <button class="close-button">&times;</button>
+        </div>
+    </div>
 }
 
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var toastMessage = '@(TempData["ToastMessage"] ?? "")';
+            if (toastMessage !== '') {
+                showCustomToast(toastMessage);
+            }
 
+            function showCustomToast(message) {
+                var toast = document.getElementById('custom-toast');
+                var toastBody = toast.querySelector('.toast-body span');
+                toastBody.textContent = message;
+                toast.classList.add('show');
 
+                setTimeout(function () {
+                    toast.classList.remove('show');
+                }, 5000); // Hide toast after 5 seconds
+
+                var closeButton = toast.querySelector('.close-button');
+                closeButton.addEventListener('click', function () {
+                    toast.classList.remove('show');
+                });
+            }
+        });
+    </script>
+
+    <style>
+        .custom-toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 9999;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            max-width: 300px; /* Adjust as needed */
+        }
+
+            .custom-toast.show {
+                opacity: 1;
+            }
+
+        .toast-body {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-button {
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            outline: none;
+        }
+
+            .close-button:hover {
+                color: #f1f1f1;
+            }
+    </style>
+}

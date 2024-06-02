@@ -1,6 +1,6 @@
 ﻿// Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
-#nullable disable
+/*#nullable disable*/
 
 using System;
 using System.Collections.Generic;
@@ -15,6 +15,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Vonage.Request;
+using Vonage;
+using Newtonsoft.Json;
 
 
 namespace DiningSystem.Areas.Identity.Pages.Account
@@ -24,7 +27,7 @@ namespace DiningSystem.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IUserStore<ApplicationUser> _userStore;
-        private readonly IUserEmailStore<ApplicationUser> _emailStore;
+        
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
@@ -37,7 +40,6 @@ namespace DiningSystem.Areas.Identity.Pages.Account
         {
             _userManager = userManager;
             _userStore = userStore;
-            _emailStore = GetEmailStore();
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
@@ -85,8 +87,8 @@ namespace DiningSystem.Areas.Identity.Pages.Account
             public string Email { get; set; }
 
             [Required]
-			[RegularExpression(@"^((\+92)|(0))\d{10}$", ErrorMessage = "Please enter a valid phone number.")]
-			public string PhoneNumber { get; set; }
+            [RegularExpression(@"^((\+92)|(0))\d{10}$", ErrorMessage = "Please enter a valid phone number.")]
+            public string PhoneNumber { get; set; }
 
             [Required]
             public string Address { get; set; }
@@ -109,6 +111,8 @@ namespace DiningSystem.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+
         }
 
 
@@ -136,7 +140,7 @@ namespace DiningSystem.Areas.Identity.Pages.Account
                 };
 
 
-               
+
                 var result = await _userManager.CreateAsync(user, Input.Password);
 
                 if (result.Succeeded)
@@ -147,17 +151,12 @@ namespace DiningSystem.Areas.Identity.Pages.Account
                     //set the user role
                     await _userManager.AddToRoleAsync(user, "customer");
 
+
+
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-                    var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
-                        pageHandler: null,
-                        values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
-
-                    await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                        $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
@@ -193,13 +192,13 @@ namespace DiningSystem.Areas.Identity.Pages.Account
             }
         }
 
-        private IUserEmailStore<ApplicationUser> GetEmailStore()
-        {
-            if (!_userManager.SupportsUserEmail)
-            {
-                throw new NotSupportedException("The default UI requires a user store with email support.");
-            }
-            return (IUserEmailStore<ApplicationUser>)_userStore;
-        }
+       
+
+
+        
     }
 }
+
+
+
+

@@ -10,11 +10,16 @@ using DiningSystem.Pages;
 using Microsoft.CodeAnalysis.Scripting;
 using Stripe;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+
+
+
+
 
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -36,7 +41,10 @@ var app = builder.Build();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
+    app.UseHsts();
 }
+
+app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 

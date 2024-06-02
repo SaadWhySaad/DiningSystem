@@ -23,7 +23,7 @@
             <h4>Dine In Details</h4>
             <div class="form-group">
                 <label asp-for="DineInDate">Date</label>
-                <input type="date" class="form-control" asp-for="DineInDate" min="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                <input type="date" class="form-control" asp-for="DineInDate" id="dineInDateInput" min="@DateTime.Today.ToString("yyyy-MM-dd")" />
                 <span class="text-danger" asp-validation-for="DineInDate"></span>
             </div>
             <div class="form-group">
@@ -55,12 +55,12 @@
         </div>
         <div class="form-group">
             <label asp-for="ExpirationDate">Expiration Date</label>
-            <input type="text" class="form-control" asp-for="ExpirationDate" placeholder="MM/YY" />
+            <input type="text" class="form-control" asp-for="ExpirationDate" id="expirationDate" placeholder="MM/YY" maxlength="5" />
             <span class="text-danger" asp-validation-for="ExpirationDate"></span>
         </div>
         <div class="form-group">
             <label asp-for="CVV">CVV</label>
-            <input type="text" class="form-control" asp-for="CVV" />
+            <input type="text" class="form-control" asp-for="CVV" id="cvv" maxlength="3" />
             <span class="text-danger" asp-validation-for="CVV"></span>
         </div>
 
@@ -99,5 +99,43 @@
                 $('#deliveryOptions').addClass('d-none');
             }
         }).trigger('change');
+    });
+    document.getElementById('expirationDate').addEventListener('input', function (e) {
+        var input = e.target.value.replace(/\D/g, '').substring(0, 4);
+        var month = input.substring(0, 2);
+        var year = input.substring(2, 4);
+        if (input.length > 2) {
+            e.target.value = month + '/' + year;
+        } else if (input.length > 0) {
+            e.target.value = month;
+        }
+    });
+
+    document.getElementById('cvv').addEventListener('input', function (e) {
+        e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
+    });
+    document.addEventListener('DOMContentLoaded', (event) => {
+        const dateInput = document.getElementById('dineInDateInput');
+        const timeInput = document.getElementById('dineInTimeInput');
+
+        function updateMinTime() {
+            const today = new Date();
+            const selectedDate = new Date(dateInput.value);
+            if (selectedDate.toDateString() === today.toDateString()) {
+                // If the selected date is today, set the min attribute to the current time
+                const hours = String(today.getHours()).padStart(2, '0');
+                const minutes = String(today.getMinutes()).padStart(2, '0');
+                timeInput.min = `${hours}:${minutes}`;
+            } else {
+                // Otherwise, remove the min attribute
+                timeInput.min = '00:00';
+            }
+        }
+
+        // Initialize the min time
+        updateMinTime();
+
+        // Update the min time when the date changes
+        dateInput.addEventListener('change', updateMinTime);
     });
 </script>

@@ -37,6 +37,7 @@
                                     <th scope="col">Dine In Time</th>
                                     <th scope="col">Number of Persons</th>
                                     <th scope="col">Delivery Address</th>
+                                    <th scope="col">Amount</th> <!-- New Column -->
                                     <th scope="col">Order Status</th>
                                     <th scope="col">Action</th>
                                 </tr>
@@ -52,13 +53,14 @@
                                         <td>@order.DineInTime?.ToString(@"hh\:mm")</td>
                                         <td>@order.NumberOfPersons</td>
                                         <td>@order.DeliveryAddress</td>
+                                        <td>@order.Amount.ToString("C")</td> <!-- New Column -->
                                         <td id="orderStatus_@order.OrderId">@order.OrderStatus</td>
                                         <td>
                                             @if (order.OrderStatus == "pending")
                                             {
                                                 <button class="btn btn-success" onclick="updateOrderStatus(@order.OrderId, 'completed')">Complete</button>
                                                 <button class="btn btn-danger" onclick="updateOrderStatus(@order.OrderId, 'cancelled')">Cancel</button>
-                                                <button class="btn btn-warning" onclick="editOrder(@order.OrderId, '@order.DineInDate', '@order.DineInTime', @order.NumberOfPersons)">Edit</button>
+                                                <button class="btn btn-warning" onclick="editOrder(@order.OrderId, '@order.DineInDate', '@order.DineInTime', @order.NumberOfPersons, @order.Amount)">Edit</button>
                                             }
                                         </td>
                                     </tr>
@@ -87,19 +89,25 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="hidden" id="editOrderId">
-                <div class="form-group">
-                    <label for="editDineInDate">Dine In Date</label>
-                    <input type="date" class="form-control" id="editDineInDate">
-                </div>
-                <div class="form-group">
-                    <label for="editDineInTime">Dine In Time</label>
-                    <input type="time" class="form-control" id="editDineInTime">
-                </div>
-                <div class="form-group">
-                    <label for="editNumberOfPersons">Number of Persons</label>
-                    <input type="number" class="form-control" id="editNumberOfPersons" min="1">
-                </div>
+                <form id="editOrderForm">
+                    <input type="hidden" id="editOrderId">
+                    <div class="form-group">
+                        <label for="editDineInDate">Dine In Date</label>
+                        <input type="date" class="form-control" id="editDineInDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDineInTime">Dine In Time</label>
+                        <input type="time" class="form-control" id="editDineInTime" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editNumberOfPersons">Number of Persons</label>
+                        <input type="number" class="form-control" id="editNumberOfPersons" min="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editAmount">Amount</label>
+                        <input type="number" step="0.01" class="form-control" id="editAmount" required>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -197,11 +205,12 @@
                 });
         }
 
-        function editOrder(orderId, dineInDate, dineInTime, numberOfPersons) {
+        function editOrder(orderId, dineInDate, dineInTime, numberOfPersons, amount) {
             $('#editOrderId').val(orderId);
             $('#editDineInDate').val(dineInDate);
             $('#editDineInTime').val(dineInTime);
             $('#editNumberOfPersons').val(numberOfPersons);
+            $('#editAmount').val(amount);
             $('#editOrderModal').modal('show');
         }
 
@@ -210,6 +219,7 @@
             const dineInDate = $('#editDineInDate').val();
             const dineInTime = $('#editDineInTime').val();
             const numberOfPersons = $('#editNumberOfPersons').val();
+            const amount = $('#editAmount').val();
             const token = document.querySelector('#antiForgeryForm input[name="__RequestVerificationToken"]').value;
 
             fetch('/Admin?handler=EditOrder', {
@@ -222,7 +232,8 @@
                     orderId: orderId,
                     dineInDate: dineInDate,
                     dineInTime: dineInTime,
-                    numberOfPersons: numberOfPersons
+                    numberOfPersons: numberOfPersons,
+                    amount: amount
                 })
             })
                 .then(response => {

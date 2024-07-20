@@ -25,7 +25,10 @@ namespace DiningSystem.Services
             var customer = new IdentityRole("customer");
             customer.NormalizedName = "customer";
 
-            builder.Entity<IdentityRole>().HasData(admin, customer);
+            var webAdmin = new IdentityRole("webAdmin");
+            webAdmin.NormalizedName = "webAdmin";
+
+            builder.Entity<IdentityRole>().HasData(admin, customer, webAdmin);
         }
     }
 }

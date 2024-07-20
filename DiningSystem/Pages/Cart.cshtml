@@ -6,6 +6,8 @@
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
 
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
+
 <div class="container mt-5 mb-5">
     <h2 class="text-center mb-4">Your Cart</h2>
 
@@ -55,7 +57,10 @@
                 <h4>Total Amount: <span id="totalAmount">@Model.TotalAmount</span></h4>
             </div>
             <div class="col-md-6 text-right">
-                <a class="btn btn-success" asp-page="/Checkout">Checkout</a>
+                <form method="get" asp-page="/Checkout">
+                    <input type="hidden" name="TotalAmount" value="@Model.TotalAmount" />
+                    <button type="submit" class="btn btn-success">Checkout</button>
+                </form>
             </div>
         </div>
     }
@@ -77,6 +82,7 @@
                 totalAmount += parseFloat(itemTotal.innerText);
             });
             document.getElementById('totalAmount').innerText = totalAmount.toFixed(2);
+            document.querySelector('input[name="TotalAmount"]').value = totalAmount.toFixed(2);
         }
     </script>
 </div>

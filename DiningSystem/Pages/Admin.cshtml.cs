@@ -88,11 +88,13 @@
             {
                 await connection.OpenAsync();
                 string sql = @"
-                    SELECT o.orderId, o.UserId, u.FirstName + ' ' + u.LastName AS UserName, o.OrderType, o.DineInDate, o.DineInTime, o.NumberOfPersons, o.DeliveryAddress, o.CardNumber, o.ExpirationDate, o.CVV, o.order_status, o.r_id
-                    FROM Orders o
-                    JOIN Restaurant r ON o.r_id = r.r_id
-                    JOIN AspNetUsers u ON o.UserId = u.Id
-                    WHERE r.r_admin = @AdminId";
+            SELECT o.orderId, o.UserId, u.FirstName + ' ' + u.LastName AS UserName, o.OrderType, 
+                   o.DineInDate, o.DineInTime, o.NumberOfPersons, o.DeliveryAddress, o.CardNumber, 
+                   o.ExpirationDate, o.CVV, o.Amount, o.order_status, o.r_id
+            FROM Orders o
+            JOIN Restaurant r ON o.r_id = r.r_id
+            JOIN AspNetUsers u ON o.UserId = u.Id
+            WHERE r.r_admin = @AdminId";
                 using (SqlCommand command = new SqlCommand(sql, connection))
                 {
                     command.Parameters.AddWithValue("@AdminId", adminId);
@@ -106,15 +108,16 @@
                                 UserId = reader.GetString(1),
                                 UserName = reader.GetString(2),
                                 OrderType = reader.GetString(3),
-                                DineInDate = reader.GetDateTime(4),
-                                DineInTime = reader.GetTimeSpan(5),
-                                NumberOfPersons = reader.GetInt32(6),
+                                DineInDate = reader.IsDBNull(4) ? (DateTime?)null : reader.GetDateTime(4),
+                                DineInTime = reader.IsDBNull(5) ? (TimeSpan?)null : reader.GetTimeSpan(5),
+                                NumberOfPersons = reader.IsDBNull(6) ? (int?)null : reader.GetInt32(6),
                                 DeliveryAddress = reader.IsDBNull(7) ? null : reader.GetString(7),
                                 CardNumber = reader.GetString(8),
                                 ExpirationDate = reader.GetString(9),
                                 CVV = reader.GetString(10),
-                                OrderStatus = reader.GetString(11),
-                                RestaurantId = reader.GetInt32(12)
+                                Amount = reader.GetDecimal(11), // Ensure the Amount is being read correctly
+                                OrderStatus = reader.GetString(12),
+                                RestaurantId = reader.GetInt32(13)
                             });
                         }
                     }
@@ -150,6 +153,7 @@
         public string CardNumber { get; set; }
         public string ExpirationDate { get; set; }
         public string CVV { get; set; }
+        public decimal Amount { get; set; }
         public string OrderStatus { get; set; }
         public int RestaurantId { get; set; } // r_id
     }

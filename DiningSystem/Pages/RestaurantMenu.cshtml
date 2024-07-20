@@ -32,6 +32,7 @@
     }
 </div>
 
+
 @if (!string.IsNullOrEmpty(ViewData["Message"] as string))
 {
     <div class="alert alert-info">@ViewData["Message"]</div>
@@ -76,7 +77,7 @@
     <style>
         .custom-toast {
             position: fixed;
-            bottom: 20px;
+            top: 70px; /* Adjust to place the toast under the navbar */
             right: 20px;
             background-color: #4CAF50;
             color: white;
@@ -85,19 +86,29 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             z-index: 9999;
             opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            max-width: 300px; /* Adjust as needed */
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            transform: translateY(-20px);
+            max-width: 300px;
+            display: flex;
+            align-items: center;
         }
 
             .custom-toast.show {
                 opacity: 1;
+                transform: translateY(0);
             }
 
         .toast-body {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
+
+            .toast-body span {
+                flex-grow: 1;
+                padding-right: 10px;
+            }
 
         .close-button {
             background: none;
@@ -112,5 +123,21 @@
             .close-button:hover {
                 color: #f1f1f1;
             }
+
+        .custom-toast:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            bottom: 10px;
+            width: 4px;
+            background-color: #FFFFFF;
+            border-radius: 2px;
+        }
+
+        .custom-toast .toast-body {
+            padding-left: 16px; /* Adjust for the before element */
+        }
     </style>
 }

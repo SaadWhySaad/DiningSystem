@@ -12,8 +12,6 @@ namespace DiningSystem.Pages
 {
     public class CheckoutModel : PageModel
     {
-        
-
         private readonly IConfiguration _configuration;
         private readonly UserManager<ApplicationUser> _userManager;
 
@@ -63,9 +61,8 @@ namespace DiningSystem.Pages
         [Display(Name = "CVV")]
         public string CVV { get; set; }
 
-
-
-
+        [BindProperty(SupportsGet = true)]
+        public decimal TotalAmount { get; set; } // Bind TotalAmount to the query string
 
         public IActionResult OnPost()
         {
@@ -105,9 +102,10 @@ namespace DiningSystem.Pages
                     ModelState.AddModelError(string.Empty, "Unable to determine the restaurant for your order.");
                     return Page();
                 }
+
                 string insertOrderSql = @"
-                INSERT INTO Orders (UserId, OrderType, DineInDate, DineInTime, NumberOfPersons, DeliveryAddress, CardNumber, ExpirationDate, CVV, order_status, r_id)
-                VALUES (@UserId, @OrderType, @DineInDate, @DineInTime, @NumberOfPersons, @DeliveryAddress, @CardNumber, @ExpirationDate, @CVV, @order_status, @RestaurantId)";
+                INSERT INTO Orders (UserId, OrderType, DineInDate, DineInTime, NumberOfPersons, DeliveryAddress, CardNumber, ExpirationDate, CVV, Amount, order_status, r_id)
+                VALUES (@UserId, @OrderType, @DineInDate, @DineInTime, @NumberOfPersons, @DeliveryAddress, @CardNumber, @ExpirationDate, @CVV, @Amount, @order_status, @RestaurantId)";
 
                 using (SqlCommand command = new SqlCommand(insertOrderSql, connection))
                 {
@@ -120,10 +118,13 @@ namespace DiningSystem.Pages
                     command.Parameters.AddWithValue("@CardNumber", CardNumber);
                     command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
                     command.Parameters.AddWithValue("@CVV", CVV);
+                    command.Parameters.AddWithValue("@Amount", TotalAmount); // Use Amount here
                     command.Parameters.AddWithValue("@order_status", "pending");
                     command.Parameters.AddWithValue("@RestaurantId", restaurantId);
+
                     command.ExecuteNonQuery();
                 }
+
                 string deleteCartItemsSql = "DELETE FROM cartitems WHERE UserId = @UserId";
                 using (SqlCommand deleteCommand = new SqlCommand(deleteCartItemsSql, connection))
                 {
@@ -132,16 +133,16 @@ namespace DiningSystem.Pages
                 }
             }
 
-            // Redirect to a confirmation page or display a success message
             return RedirectToPage("/OrderConfirmation");
         }
+    
 
 
 
 
 
 
-        public void OnGet()
+    public void OnGet()
         {
         }
 

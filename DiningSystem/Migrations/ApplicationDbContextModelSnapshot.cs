@@ -131,15 +131,21 @@ namespace DiningSystem.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "259ae564-e679-42bb-91a2-85f809a8245b",
+                            Id = "6fb7e2be-e25c-40ec-a496-1c7cae516a53",
                             Name = "admin",
                             NormalizedName = "admin"
                         },
                         new
                         {
-                            Id = "72e6a0ce-7a5d-406a-a5b3-f8030a6181a4",
+                            Id = "32a09255-cd5d-421c-a8ff-9c6a97867f55",
                             Name = "customer",
                             NormalizedName = "customer"
+                        },
+                        new
+                        {
+                            Id = "d5ee5eb5-0392-43fd-a1ad-d5e3ab6cdd9d",
+                            Name = "webAdmin",
+                            NormalizedName = "webAdmin"
                         });
                 });
 
@@ -196,10 +202,12 @@ namespace DiningSystem.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
@@ -236,10 +244,12 @@ namespace DiningSystem.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(128)
+                        .HasColumnType("nvarchar(128)");
 
                     b.Property<string>("Value")
                         .HasColumnType("nvarchar(max)");

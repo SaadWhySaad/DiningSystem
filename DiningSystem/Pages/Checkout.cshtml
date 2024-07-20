@@ -6,7 +6,7 @@
 
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet" />
 
-<div class="container mt-5">
+@* <div class="container mt-5">
     <h2 class="text-center mb-4">Checkout</h2>
 
     <form method="post">
@@ -63,58 +63,123 @@
             <input type="text" class="form-control" asp-for="CVV" id="cvv" maxlength="3" />
             <span class="text-danger" asp-validation-for="CVV"></span>
         </div>
+         <div class="form-group">
+            <label>Total Amount</label>
+            <input asp-for="TotalAmount" class="form-control" readonly />
+            
+        </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</div>
+</div> *@
+
+
+
+<h2>Checkout</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="CheckoutOption"></label>
+        <select asp-for="CheckoutOption" id="dineInOrDelivery" class="form-control">
+            <option value="">-- Select an Option --</option>
+            <option value="DineIn">Dine In</option>
+            <option value="Delivery">Delivery</option>
+        </select>
+        <span asp-validation-for="CheckoutOption" class="text-danger"></span>
+    </div>
+
+    <div id="dineInFields" class="d-none">
+        <div class="form-group">
+            <label asp-for="DineInDate"></label>
+            <input asp-for="DineInDate" id="dineInDateInput" class="form-control" min="@DateTime.Today.ToString("yyyy-MM-dd")" />
+            <span asp-validation-for="DineInDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DineInTime"></label>
+            <input asp-for="DineInTime" id="dineInTimeInput" class="form-control" />
+            <span asp-validation-for="DineInTime" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="NumberOfPersons"></label>
+            <input asp-for="NumberOfPersons" class="form-control" min="1" />
+            <span asp-validation-for="NumberOfPersons" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div id="deliveryFields" class="d-none">
+        <div class="form-group">
+            <label asp-for="DeliveryAddress"></label>
+            <input asp-for="DeliveryAddress" class="form-control" />
+            <span asp-validation-for="DeliveryAddress" class="text-danger"></span>
+        </div>
+    </div>
+        <div class="form-group">
+            <label asp-for="CardNumber"></label>
+            <input asp-for="CardNumber" class="form-control" id="cardNumber" />
+            <span asp-validation-for="CardNumber" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ExpirationDate"></label>
+            <input asp-for="ExpirationDate" id="expirationDate" placeholder="MM/YY" maxlength="5" class="form-control" />
+            <span asp-validation-for="ExpirationDate" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="CVV"></label>
+            <input asp-for="CVV" id="cvv" maxlength="3" class="form-control" />
+            <span asp-validation-for="CVV" class="text-danger"></span>
+        </div>
+    
+
+    <div class="form-group">
+        <label>Total Amount</label>
+        <input asp-for="TotalAmount" class="form-control" readonly />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Place Order</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 <script>
     $(document).ready(function () {
-        var now = new Date();
-        var hours = now.getHours();
-        var minutes = now.getMinutes();
-        var ampm = hours >= 12 ? 'PM' : 'AM';
-
-        // Convert hours to 12-hour format
-        hours = hours % 12;
-        hours = hours ? hours : 12; // the hour '0' should be '12'
-
-        var currentTime = hours.toString().padStart(2, '0') + ':' + minutes.toString().padStart(2, '0') + ' ' + ampm;
-
-        // Set the min attribute of the DineInTime input field to the current time
-        $('#dineInTimeInput').attr('min', currentTime);
         $('#dineInOrDelivery').change(function () {
             var selectedOption = $(this).val();
             if (selectedOption === "DineIn") {
-                $('#dineInOptions').removeClass('d-none');
-                $('#deliveryOptions').addClass('d-none');
+                $('#dineInFields').removeClass('d-none');
+                $('#deliveryFields').addClass('d-none');
             } else if (selectedOption === "Delivery") {
-                $('#dineInOptions').addClass('d-none');
-                $('#deliveryOptions').removeClass('d-none');
+                $('#dineInFields').addClass('d-none');
+                $('#deliveryFields').removeClass('d-none');
             } else {
-                $('#dineInOptions').addClass('d-none');
-                $('#deliveryOptions').addClass('d-none');
+                $('#dineInFields').addClass('d-none');
+                $('#deliveryFields').addClass('d-none');
             }
         }).trigger('change');
-    });
-    document.getElementById('expirationDate').addEventListener('input', function (e) {
-        var input = e.target.value.replace(/\D/g, '').substring(0, 4);
-        var month = input.substring(0, 2);
-        var year = input.substring(2, 4);
-        if (input.length > 2) {
-            e.target.value = month + '/' + year;
-        } else if (input.length > 0) {
-            e.target.value = month;
-        }
-    });
 
-    document.getElementById('cvv').addEventListener('input', function (e) {
-        e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
-    });
-    document.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById('expirationDate').addEventListener('input', function (e) {
+            var input = e.target.value.replace(/\D/g, '').substring(0, 4);
+            var month = input.substring(0, 2);
+            var year = input.substring(2, 4);
+            if (input.length > 2) {
+                e.target.value = month + '/' + year;
+            } else if (input.length > 0) {
+                e.target.value = month;
+            }
+        });
+
+        document.getElementById('cvv').addEventListener('input', function (e) {
+            e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
+        });
+
         const dateInput = document.getElementById('dineInDateInput');
         const timeInput = document.getElementById('dineInTimeInput');
 

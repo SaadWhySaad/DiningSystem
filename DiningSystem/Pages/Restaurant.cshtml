@@ -3,34 +3,6 @@
 @{
 }
 
-
-@* <h2 class="text-center">welcome to your account User</h2>
-
-<div>
-    First Name: @Model.appUser?.FirstName
-</div>
-
-<div>
-    First Name: @Model.appUser?.LastName
-</div>
-<div>
-    First Name: @Model.appUser?.Email
-</div>
-<div>
-    First Name: @Model.appUser?.PhoneNumber
-</div>
-<div>
-    First Name: @Model.appUser?.Address
-</div>
-<div>
-    First Name: @Model.appUser?.CreatedAt.ToString("MM/dd/yyyy")
-</div> *@
-
-
-
-
-
-
 <div class="search-container">
     <div class="search-box">
         <input type="text" id="searchInput" class="search-input" placeholder="Search..." oninput="searchContent()" />
@@ -39,17 +11,13 @@
 </div>
 
 
-
-
-
-
 <div class="wrap">
 @foreach (var item in Model.listRestaurant)
 {
  
         <div class="box">
             <div class="box-top">
-                <img class="box-image" src="/css/images/@(item.Image).jpg" alt="banner1">
+                <img class="box-image skeleton" src="/css/images/@(item.Image).jpg" alt="banner1" onerror="this.onerror=null;this.src='/css/images/fourth.jpg';">
                 <div class="title-flex">
                     <h3 class="box-title">@item.r_name</h3>
                     <p class="user-follow-info">@item.timings</p>
@@ -62,32 +30,7 @@
         </div>
    
 }
-    <div class="box">
-        <div class="box-top">
-            <img class="box-image" src="/css/images/slide1.jpg" alt="banner1">
-            <div class="title-flex">
-                <h3 class="box-title">McDonalds</h3>
-                <p class="user-follow-info">2</p>
-            </div>
-            <p class="description">info is info</p>
-        </div>
-        <a asp-route-id="" asp-page="/RestaurantMenu" class="button">Explore Menu</a>
-
-    </div>
-
-    <div class="box">
-        <div class="box-top">
-            <img class="box-image" src="/css/images/first.jpg" alt="banner1">
-            <div class="title-flex">
-                <h3 class="box-title">Ginsoy</h3>
-                <p class="user-follow-info">4</p>
-            </div>
-            <p class="description">info is info</p>
-        </div>
-        <a asp-route-id="" asp-page="/RestaurantMenu" class="button">Explore Menu</a>
-
-    </div>
-    
+ 
 </div>
 
 

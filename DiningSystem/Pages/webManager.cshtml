@@ -1,0 +1,88 @@
+﻿@page
+@model DiningSystem.Pages.webManagerModel
+@{
+}
+
+<div class="table-container">
+    <h2 class="text-dark">Manage Restaurants</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Restaurant ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Admin</th>
+                <th>Max Table Servings</th>
+                <th>Open Close Timings</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var restaurant in Model.Restaurants)
+            {
+                <tr>
+                    <td>@restaurant.Id</td>
+                    <td>@restaurant.Name</td>
+                    <td>@restaurant.Description</td>
+                    <td>@Model.AdminUsernames[restaurant.Admin]</td>
+                    <td>@restaurant.MaxTableServings</td>
+                    <td>@restaurant.OpenCloseTimings</td>
+                    <td>
+                        <a class="btn btn-primary" asp-page="/EditRestaurant" asp-route-id="@restaurant.Id">Edit</a>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@restaurant.Id" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-success" asp-page="/AddRestaurant">Add New Restaurant</a>
+</div>
+<style>
+    .table-container {
+        margin: 20px;
+        padding: 20px;
+        background: #f9f9f9;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        border-radius: 8px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    th, td {
+        padding: 12px 15px;
+    }
+
+    th {
+        background-color: #009879;
+        color: #000000;
+        /* text-align: center; */
+    }
+
+    tr {
+        border-bottom: 1px solid #dddddd;
+    }
+
+        tr:nth-of-type(even) {
+            background-color: #f3f3f3;
+        }
+
+        tr:last-of-type {
+            border-bottom: 2px solid #009879;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+    .btn {
+        margin-right: 5px;
+    }
+</style>

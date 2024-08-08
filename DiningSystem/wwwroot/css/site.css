@@ -19,6 +19,188 @@ html {
   position: relative;
   min-height: 100%;
 }
+.skeleton {
+
+    &:empty::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    box-shadow: 0 10px 45px rgba(0,0,0, .1);
+    background-image: linear-gradient( 90deg, rgba(lightgrey, 0) 0, rgba(lightgrey, .8) 50%, rgba(lightgrey, 0) 100% ),  var(--title-skeleton),  var(--desc-line-skeleton),  var(--desc-line-skeleton), var(--avatar-skeleton),  var(--footer-skeleton), var(--card-skeleton) ;
+    background-size: var(--blur-size), var(--title-width) var(--title-height), var(--desc-line-1-width) var(--desc-line-height), var(--desc-line-2-width) var(--desc-line-height), var(--avatar-size) var(--avatar-size), 100% var(--footer-height), 100% 100%;
+    background-position: -150% 0,  var(--title-position), var(--desc-line-1-position), var(--desc-line-2-position),  var(--avatar-position), var(--footer-position),  0 0 ;
+    background-repeat: no-repeat;
+    animation: loading 1.5s infinite;
+                  }
+
+}
+
+@keyframes loading {
+    to {
+        background-position: 350% 0, var(--title-position), var(--desc-line-1-position), var(--desc-line-2-position), var(--avatar-position), var(--footer-position), 0 0;
+    }
+}
+
+.custom-shadow {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.customnav {
+    background-color: rgba(4, 3, 15, 0.8);  /*Slightly transparent for glass effect */
+    backdrop-filter: blur(10px); /* Blur effect */
+    -webkit-backdrop-filter: blur(10px); /* For Safari */
+    padding: 8px 20px; /* Reduced padding */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.navbar-brand {
+    font-size: 1.5rem; /* Reduced font size */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    color: #ffcc00; /* Highlight color */
+    margin-right: auto; /* Align left */
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+}
+
+    .navbar-brand .logo {
+        height: 40px; /* Smaller logo */
+        margin-right: 8px; /* Adjust spacing */
+    }
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Align right */
+}
+
+    .navbar-nav .nav-link {
+        color: #ffffff; /* White text color */
+        font-size: 1.2rem; /* Reduced font size */
+        font-weight: 500; /* Medium weight */
+        margin: 0 8px; /* Reduced margin */
+        transition: color 0.3s ease-in-out;
+    }
+
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00;  Highlight color 
+        }
+
+.customham {
+    border: none;
+    color: #ffffff; /* White icon color */
+    font-size: 1.2rem; /* Adjusted size */
+    display: none; /* Initially hidden */
+}
+
+.navbar-dark .navbar-toggler-icon {
+    background-image: url('data:image/svg+xml;charset=utf8,%3Csvg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg"%3E%3Cpath stroke="rgba%28%255,255,255,0.5%29" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"/%3E%3C/svg%3E');
+}
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        display: none; /* Hide links on small screens */
+    }
+
+    .customham {
+        display: block; /* Show hamburger */
+    }
+
+    .navbar-collapse.show .navbar-nav {
+        display: flex; /* Show links */
+        flex-direction: column; /* Stack links */
+        align-items: center;
+        padding: 10px;
+    }
+}
+
+
+
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #04030f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: top 1s ease-out;
+    overflow: hidden; /* Ensures floating spoons don't appear outside the loader */
+}
+
+#loader-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.floating-spoon {
+    position: absolute;
+    width: 50px; /* Adjust size as needed */
+    height: 50px;
+    background-image: url('/css/images/fork.png'); /* Update the path if necessary */
+    background-size: cover;
+    animation: float 10s infinite linear, drift 5s infinite linear alternate, rotate 10s infinite linear;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-50px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes drift {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(30px);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#loader-text {
+    font-size: 100px; /* Larger font size for desktop */
+    font-weight: bold;
+    color: #FFE5B4;
+    opacity: 0;
+    transition: opacity 0.5s;
+    text-align: center;
+    width: 100%;
+}
+
+
 
 body {
     /*margin-bottom: 60px;*/
@@ -394,23 +576,8 @@ h1, .h1 {
     box-shadow: 6px 6px 44px -9px rgba(0,0,0,1);
 }
 
-.customnav {
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(60,66,66,1) 0%, rgba(107,111,111,1) 100%, rgba(255,255,255,1) 100%);
-}
 
-.customham{
-    background-color: wheat !important;
-}
 
-.navbar {
-    font-size: larger;
-    -webkit-box-shadow: 4px 6px 50px 1px rgba(0,0,0,1);
-    -moz-box-shadow: 4px 6px 50px 1px rgba(0,0,0,1);
-    box-shadow: 4px 6px 50px 1px rgba(0,0,0,1);
-    padding: 1rem;
-    
-}
 
 .copyright{
     padding-left: 20% !important;
@@ -679,6 +846,9 @@ h1 {
     line-height: 1.72222;
     font-weight: 500;
     color: rgba(0,0,0,.7);
+    font-family: "Bad Script", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
 h3 {
@@ -759,12 +929,23 @@ full
 .card {
     font-size: 1em;
     overflow: hidden;
-    padding: 5;
-    border: none;
+    /*padding: 5px;*/
+    border: none !important;
+    outline: none !important;
     border-radius: .28571429rem;
     box-shadow: 0 1px 3px 0 #d4d4d5, 0 0 0 1px #d4d4d5;
     margin-top: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    
 }
+
+    .card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 
 .carousel-indicators li {
     border-radius: 12px;

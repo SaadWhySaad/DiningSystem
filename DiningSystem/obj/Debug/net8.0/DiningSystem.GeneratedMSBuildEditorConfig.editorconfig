@@ -46,8 +46,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Areas/Identity/Pages/Account/Manage/ExternalLogins.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcRXh0ZXJuYWxMb2dpbnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
@@ -78,6 +86,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/AddRestaurant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRkUmVzdGF1cmFudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/Admin.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW4uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -88,6 +100,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/Checkout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hlY2tvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/EditRestaurant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWRpdFJlc3RhdXJhbnQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/Error.cshtml]
@@ -120,6 +136,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/webManager.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcd2ViTWFuYWdlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/_ViewImports.cshtml]

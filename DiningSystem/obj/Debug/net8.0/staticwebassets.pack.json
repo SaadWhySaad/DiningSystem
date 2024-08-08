@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\DiningSystem.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\audio\\zen-tone-high-202554.mp3",
+      "PackagePath": "staticwebassets\\css\\audio\\zen-tone-high-202554.mp3"
+    },
+    {
       "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\AllYouCanEat.png",
       "PackagePath": "staticwebassets\\css\\images\\AllYouCanEat.png"
     },
@@ -17,16 +21,16 @@
       "PackagePath": "staticwebassets\\css\\images\\KFC.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\banner_4.jpg",
-      "PackagePath": "staticwebassets\\css\\images\\banner_4.jpg"
+      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\banner_12.jpg",
+      "PackagePath": "staticwebassets\\css\\images\\banner_12.jpg"
+    },
+    {
+      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\banner_5.jpg",
+      "PackagePath": "staticwebassets\\css\\images\\banner_5.jpg"
     },
     {
       "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\eatHealthy.png",
       "PackagePath": "staticwebassets\\css\\images\\eatHealthy.png"
-    },
-    {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\fifth.jpg",
-      "PackagePath": "staticwebassets\\css\\images\\fifth.jpg"
     },
     {
       "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\first.jpg",
@@ -35,6 +39,14 @@
     {
       "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\foodbreak.png",
       "PackagePath": "staticwebassets\\css\\images\\foodbreak.png"
+    },
+    {
+      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\fork.png",
+      "PackagePath": "staticwebassets\\css\\images\\fork.png"
+    },
+    {
+      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\forkandspoon.png",
+      "PackagePath": "staticwebassets\\css\\images\\forkandspoon.png"
     },
     {
       "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\fourth.jpg",
@@ -95,6 +107,10 @@
     {
       "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider4.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slider4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\spoon.png",
+      "PackagePath": "staticwebassets\\css\\images\\spoon.png"
     },
     {
       "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\site.css",

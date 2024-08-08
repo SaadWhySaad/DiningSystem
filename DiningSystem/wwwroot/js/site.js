@@ -58,3 +58,105 @@ function searchContent() {
 
 
 
+/*document.addEventListener("DOMContentLoaded", function () {
+    var loaderText = document.getElementById("loader-text");
+    var words = "Experience The Taste Of World".split(" ");
+    var index = 0;
+
+    function showNextWord() {
+        if (index < words.length) {
+            loaderText.style.opacity = 0;
+            setTimeout(function () {
+                loaderText.textContent = words[index];
+                loaderText.style.opacity = 1;
+                index++;
+                setTimeout(showNextWord, 300); // Delay before the next word appears
+            }, 400); // Time for the word to disappear
+        } else {
+            setTimeout(function () {
+                document.getElementById("loader").style.top = "-100%";
+                document.getElementById("content").style.display = "block";
+            }, 1000);
+        }
+    }
+
+    showNextWord();
+});*/
+
+document.addEventListener("DOMContentLoaded", function () {
+    var loaderText = document.getElementById("loader-text");
+    var words = "Experience The Taste Of World".split(" ");
+    var index = 0;
+    var welcomeSound = document.getElementById("welcomeSound");
+    // Check if the loader has already been shown in this session
+    if (sessionStorage.getItem('loaderShown') === 'true') {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        return; // Don't show the loader again
+    } else {
+        sessionStorage.setItem('loaderShown', 'true'); // Set the flag
+    }
+
+    function showNextWord() {
+        if (index < words.length) {
+            loaderText.style.opacity = 0;
+            setTimeout(function () {
+                loaderText.textContent = words[index];
+                loaderText.style.opacity = 1;
+                index++;
+                setTimeout(showNextWord, 300); // Delay before the next word appears
+            }, 400); // Time for the word to disappear
+        } else {
+            setTimeout(function () {
+                document.getElementById("loader").style.top = "-100%";
+                document.getElementById("content").style.display = "block";
+                playWelcomeSound(); // Play the welcome sound
+            }, 500);
+        }
+    }
+
+    function createFloatingSpoons() {
+        var background = document.getElementById("loader-background");
+        for (var i = 0; i < 20; i++) { // Adjust the number of spoons
+            var spoon = document.createElement("div");
+            spoon.className = "floating-spoon";
+            spoon.style.left = Math.random() * 100 + "vw"; // Random horizontal position
+            spoon.style.top = Math.random() * 100 + "vh";  // Random vertical position
+            spoon.style.animationDelay = Math.random() * 5 + "s"; // Stagger animation start
+            background.appendChild(spoon);
+        }
+    }
+
+    function playWelcomeSound() {
+        welcomeSound.play().catch(function (error) {
+            console.error("Playback error:", error);
+            // You can handle user interaction required error here
+        });
+    }
+
+    createFloatingSpoons();
+    showNextWord();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const cards = document.querySelectorAll('.card');
+
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    cards.forEach(card => {
+        observer.observe(card);
+    });
+});

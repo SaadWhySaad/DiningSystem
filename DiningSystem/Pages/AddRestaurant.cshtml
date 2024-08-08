@@ -1,0 +1,30 @@
+﻿@page
+@model DiningSystem.Pages.AddRestaurantModel
+@{
+}
+
+<h2>Add Restaurant</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label asp-for="Restaurant.r_name"></label>
+        <input asp-for="Restaurant.r_name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Restaurant.r_description"></label>
+        <input asp-for="Restaurant.r_description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Restaurant.AdminUsername"></label>
+        <input asp-for="Restaurant.AdminUsername" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Restaurant.max_table_servings"></label>
+        <input asp-for="Restaurant.max_table_servings" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Restaurant.open_close_timings"></label>
+        <input asp-for="Restaurant.open_close_timings" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success">Add</button>
+</form>

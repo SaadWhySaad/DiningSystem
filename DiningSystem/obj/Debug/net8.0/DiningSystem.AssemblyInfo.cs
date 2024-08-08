@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DiningSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b509388faac62f2b2d103b29060f63a8e5651567")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+defcacad127001460b7b82ab91cca8ff2a700576")]
 [assembly: System.Reflection.AssemblyProductAttribute("DiningSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DiningSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

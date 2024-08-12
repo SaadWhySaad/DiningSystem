@@ -156,6 +156,8 @@
         public decimal Amount { get; set; }
         public string OrderStatus { get; set; }
         public int RestaurantId { get; set; } // r_id
+        public string order_status {  get; set; }
+        public string RestaurantName {  get; set; }
     }
 
 }

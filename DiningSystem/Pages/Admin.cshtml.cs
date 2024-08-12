@@ -1,12 +1,12 @@
-    using DiningSystem.Models;
-    using Microsoft.AspNetCore.Authorization;
-    using Microsoft.AspNetCore.Identity;
-    using Microsoft.AspNetCore.Mvc;
-    using Microsoft.AspNetCore.Mvc.RazorPages;
-    using System.Data.SqlClient;
+using DiningSystem.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Data.SqlClient;
 
-    namespace DiningSystem.Pages
-    {
+namespace DiningSystem.Pages
+{
     [Authorize(Roles = "admin")]
     public class AdminModel : PageModel
     {
@@ -47,6 +47,18 @@
                 {
                     command.Parameters.AddWithValue("@OrderId", model.OrderId);
                     command.Parameters.AddWithValue("@Status", model.Status);
+                    await command.ExecuteNonQueryAsync();
+                }
+                string deletesql = @"
+                    DELETE FROM CartItems
+                    WHERE UserId IN (
+                        SELECT UserId
+                        FROM Orders
+                        WHERE order_status IN ('completed', 'cancelled')
+                    )";
+
+                using (SqlCommand command = new SqlCommand(deletesql, connection))
+                {
                     await command.ExecuteNonQueryAsync();
                 }
             }
@@ -116,15 +128,17 @@
                                 ExpirationDate = reader.GetString(9),
                                 CVV = reader.GetString(10),
                                 Amount = reader.GetDecimal(11), // Ensure the Amount is being read correctly
-                                OrderStatus = reader.GetString(12),
+                                order_status = reader.GetString(12),
                                 RestaurantId = reader.GetInt32(13)
                             });
                         }
                     }
                 }
             }
+
         }
 
+    
         public class UpdateOrderStatusModel
         {
             public int OrderId { get; set; }
@@ -138,6 +152,8 @@
             public TimeSpan DineInTime { get; set; }
             public int NumberOfPersons { get; set; }
         }
+
+
     }
 
     public class Order
@@ -154,12 +170,12 @@
         public string ExpirationDate { get; set; }
         public string CVV { get; set; }
         public decimal Amount { get; set; }
-        public string OrderStatus { get; set; }
+        public string order_status { get; set; }
         public int RestaurantId { get; set; } // r_id
+        public string RestaurantName { get; set; } // Add this property
+        public bool HasReviewed { get; set; }
+
+        public decimal pendingAmount {  get; set; }
     }
 
 }
-
-
-
-    

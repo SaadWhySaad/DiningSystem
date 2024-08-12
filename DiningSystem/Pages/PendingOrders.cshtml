@@ -1,0 +1,38 @@
+﻿@page
+@model DiningSystem.Pages.PendingOrdersModel
+@{
+}
+
+
+
+<div>
+    <table class="table text-light">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Order Type</th>
+                <th>Dine In Date</th>
+                <th>Dine In Time</th>
+                <th>Number of Persons</th>
+                <th>Delivery Address</th>
+                <th>Amount Paid (20%)</th>
+                <th>Receipt</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var order in Model.PendingOrders)
+            {
+                <tr>
+                    <td>@order.OrderId</td>
+                    <td>@order.OrderType</td>
+                    <td>@order.DineInDate?.ToString("yyyy-MM-dd")</td>
+                    <td>@order.DineInTime?.ToString(@"hh\:mm")</td>
+                    <td>@order.NumberOfPersons</td>
+                    <td>@order.DeliveryAddress</td>
+                    <td>@order.pendingAmount</td>
+                    <td><a href="/Receipt?orderId=@order.OrderId" class="btn btn-info">View Receipt</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

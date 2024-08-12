@@ -1,0 +1,41 @@
+﻿@page
+@model DiningSystem.Pages.ReceiptModel
+@{
+}
+
+
+<h2>Receipt</h2>
+
+<h3>Order Details</h3>
+<p><strong>Order ID:</strong> @Model.Order.OrderId</p>
+<p><strong>User Name:</strong> @Model.Order.UserName</p>
+<p><strong>Order Type:</strong> @Model.Order.OrderType</p>
+<p><strong>Dine In Date:</strong> @Model.Order.DineInDate?.ToString("d")</p>
+<p><strong>Dine In Time:</strong> @Model.Order.DineInTime?.ToString(@"hh\:mm")</p>
+<p><strong>Number of Persons:</strong> @Model.Order.NumberOfPersons</p>
+<p><strong>Delivery Address:</strong> @Model.Order.DeliveryAddress</p>
+<p><strong>Total Amount:</strong> @Model.Order.Amount</p>
+<p><strong>Pending Amount:</strong> @Model.Order.pendingAmount</p>
+
+<h3>Ordered Items</h3>
+<table class="table text-light">
+    <thead>
+        <tr>
+            <th>Item Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderedItems)
+        {
+            <tr>
+                <td>@item.ItemName</td>
+                <td>@item.Quantity</td>
+                <td>@item.Price.ToString("C")</td>
+                <td>@(item.Quantity * item.Price)</td>
+            </tr>
+        }
+    </tbody>
+</table>

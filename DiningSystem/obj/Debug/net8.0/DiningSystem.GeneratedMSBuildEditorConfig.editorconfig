@@ -118,8 +118,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJDb25maXJtYXRpb24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+[C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/OrderHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcT3JkZXJIaXN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/PendingOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGVuZGluZ09yZGVycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/Receipt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVjZWlwdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/whyy/source/repos/DiningSystem/DiningSystem/Pages/Restaurant.cshtml]

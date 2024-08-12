@@ -84,5 +84,25 @@
             document.getElementById('totalAmount').innerText = totalAmount.toFixed(2);
             document.querySelector('input[name="TotalAmount"]').value = totalAmount.toFixed(2);
         }
+
+        function updateItemTotal(element) {
+        const quantity = parseInt(element.value);
+        const row = element.closest('tr');
+        const price = parseFloat(row.querySelector('.price').innerText);
+        const itemTotal = price * quantity;
+        row.querySelector('.item-total').innerText = itemTotal.toFixed(2);
+
+        updateTotalAmount();
+    }
+
+    function updateTotalAmount() {
+        let totalAmount = 0;
+        document.querySelectorAll('.item-total').forEach(function (itemTotal) {
+            totalAmount += parseFloat(itemTotal.innerText);
+        });
+        document.getElementById('totalAmount').innerText = totalAmount.toFixed(2);
+        document.querySelector('input[name="TotalAmount"]').value = totalAmount.toFixed(2);
+    }
     </script>
 </div>
+

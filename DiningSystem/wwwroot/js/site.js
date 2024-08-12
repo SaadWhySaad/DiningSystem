@@ -127,13 +127,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    function playWelcomeSound() {
-        welcomeSound.play().catch(function (error) {
-            console.error("Playback error:", error);
-            // You can handle user interaction required error here
-        });
-    }
-
     createFloatingSpoons();
     showNextWord();
 });

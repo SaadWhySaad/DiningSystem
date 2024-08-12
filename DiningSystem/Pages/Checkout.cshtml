@@ -74,11 +74,6 @@
         <input asp-for="TotalAmount" class="form-control" readonly />
     </div>
 
-    <div class="form-group">
-        <label>Deposit Amount (20%)</label>
-        <input value="@(Model.TotalAmount * 0.20m)" class="form-control" readonly />
-    </div>
-
     <button type="submit" class="btn btn-primary">Place Order</button>
 </form>
 

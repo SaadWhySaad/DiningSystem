@@ -98,7 +98,7 @@
 
 
 
-@* <section class="testimonial text-light">
+<section class="testimonial text-light">
     <div class="container text-light">
         <div class="row">
             <div class="col-lg-6 d-none d-lg-block">
@@ -160,59 +160,6 @@
             </div>
         </div>
     </div>
-</section> *@
-
-
-
-<section class="testimonial text-light">
-    <div class="container text-light">
-        <div class="row">
-            <div class="col-lg-6 d-none d-lg-block">
-                <ol class="carousel-indicators tabs">
-                    <!-- Static image URLs for carousel indicators -->
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active" data-interval="300">
-                        <figure>
-                            <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-01-179x179.png" class="img-fluid" alt="Review Image 1">
-                        </figure>
-                    </li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1">
-                        <figure>
-                            <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-02-306x306.png" class="img-fluid" alt="Review Image 2">
-                        </figure>
-                    </li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2">
-                        <figure>
-                            <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-03-179x179.png" class="img-fluid" alt="Review Image 3">
-                        </figure>
-                    </li>
-                    <!-- Add more indicators if needed -->
-                </ol>
-            </div>
-            <div class="col-lg-6 d-flex justify-content-center align-items-center">
-                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
-                    <h3 class="text-light">Customer Reviews</h3>
-                    <h1 id="restaurantName">TESTIMONIALS</h1>
-                    <div class="carousel-inner">
-                        @for (int i = 0; i < Model.listReview.Count; i++)
-                        {
-                            var review = Model.listReview[i];
-                            <div class="carousel-item @(i == 0 ? "active" : "")">
-                                <div class="quote-wrapper">
-                                    <p class="text-light">@review.user_review</p>
-                                    <h3 class="text-light">@review.user_name</h3>
-                                    <p class="text-light"><strong>Restaurant:</strong> @review.restaurant_name</p>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                    <ol class="carousel-indicators indicators text-light">
-                        @for (int i = 0; i < Model.listReview.Count; i++)
-                        {
-                            <li style="background: white !important;" data-target="#carouselExampleIndicators" data-slide-to="@i" class="@(i == 0 ? "active" : "")"></li>
-                        }
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
+
+	

@@ -74,20 +74,15 @@ namespace DiningSystem.Pages
             // Get the user ID
             string userId = _userManager.GetUserId(User);
 
-            // Calculate 20% of the total amount
-            decimal initialAmount = TotalAmount * 0.20m;
-
             // Process the order
             string connectionString = _configuration.GetConnectionString("DefaultConnection");
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-
-                // Get the restaurant ID
                 string getRestaurantIdSql = @"
-                    SELECT DISTINCT r_id 
-                    FROM restaurantMenu 
-                    WHERE menu_id IN (SELECT ItemId FROM cartitems WHERE UserId = @UserId)";
+                SELECT DISTINCT r_id 
+                FROM restaurantMenu 
+                WHERE menu_id IN (SELECT ItemId FROM cartitems WHERE UserId = @UserId)";
                 int? restaurantId = null;
                 using (SqlCommand getRestaurantIdCommand = new SqlCommand(getRestaurantIdSql, connection))
                 {
@@ -103,16 +98,14 @@ namespace DiningSystem.Pages
 
                 if (restaurantId == null)
                 {
+                    // Handle the case where no restaurant ID could be found (e.g., return an error)
                     ModelState.AddModelError(string.Empty, "Unable to determine the restaurant for your order.");
                     return Page();
                 }
 
-
-
-                // Insert the order into the Orders table
                 string insertOrderSql = @"
-                    INSERT INTO Orders (UserId, OrderType, DineInDate, DineInTime, NumberOfPersons, DeliveryAddress, CardNumber, ExpirationDate, CVV, Amount, order_status, r_id, pending_amount, AlertStatus)
-                    VALUES (@UserId, @OrderType, @DineInDate, @DineInTime, @NumberOfPersons, @DeliveryAddress, @CardNumber, @ExpirationDate, @CVV, @TotalAmount, @order_status, @RestaurantId, @PendingAmount, @AlertStatus)";
+                INSERT INTO Orders (UserId, OrderType, DineInDate, DineInTime, NumberOfPersons, DeliveryAddress, CardNumber, ExpirationDate, CVV, Amount, order_status, r_id)
+                VALUES (@UserId, @OrderType, @DineInDate, @DineInTime, @NumberOfPersons, @DeliveryAddress, @CardNumber, @ExpirationDate, @CVV, @Amount, @order_status, @RestaurantId)";
 
                 using (SqlCommand command = new SqlCommand(insertOrderSql, connection))
                 {
@@ -125,38 +118,31 @@ namespace DiningSystem.Pages
                     command.Parameters.AddWithValue("@CardNumber", CardNumber);
                     command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
                     command.Parameters.AddWithValue("@CVV", CVV);
-                    command.Parameters.AddWithValue("@TotalAmount", TotalAmount);
+                    command.Parameters.AddWithValue("@Amount", TotalAmount); // Use Amount here
                     command.Parameters.AddWithValue("@order_status", "pending");
                     command.Parameters.AddWithValue("@RestaurantId", restaurantId);
-                    command.Parameters.AddWithValue("@PendingAmount", TotalAmount - initialAmount); // Calculate the pending amount
-                    command.Parameters.AddWithValue("@AlertStatus", DBNull.Value); // Set initial alert status as null
 
                     command.ExecuteNonQuery();
                 }
 
-
-
-
-
-                // Clear the cart items
-                /*string deleteCartItemsSql = "DELETE FROM cartitems WHERE UserId = @UserId";
+                string deleteCartItemsSql = "DELETE FROM cartitems WHERE UserId = @UserId";
                 using (SqlCommand deleteCommand = new SqlCommand(deleteCartItemsSql, connection))
                 {
                     deleteCommand.Parameters.AddWithValue("@UserId", userId);
                     deleteCommand.ExecuteNonQuery();
-                }*/
+                }
             }
 
             return RedirectToPage("/OrderConfirmation");
         }
+    
 
 
 
 
 
 
-
-        public void OnGet()
+    public void OnGet()
         {
         }
 

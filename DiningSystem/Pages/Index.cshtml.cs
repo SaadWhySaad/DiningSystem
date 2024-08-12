@@ -19,7 +19,6 @@ namespace DiningSystem.Pages
             _logger = logger;
             _configuration = configuration;
             this.userManager = userManager;
-            listReview = new List<Review>();
         }
 
         public void OnGet()

@@ -1,0 +1,42 @@
+﻿@page
+@model ReceiptModel
+@{
+    ViewData["Title"] = "Receipt";
+}
+
+<h2>Receipt</h2>
+
+<div>
+    <h4>User Information</h4>
+    <p>Name: @Model.UserInformation.UserName</p>
+    <p>Email: @Model.UserInformation.Email</p>
+</div>
+
+<div>
+    <h4>Order Details</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Menu Item</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.MenuItems)
+            {
+            <tr>
+                <td>@item.MenuItemName</td>
+                <td>@item.MenuDescription</td>
+                <td>@item.MenuItemPrice.ToString("C")</td>
+                <td>@item.Quantity</td>
+                <td>@(item.MenuItemPrice * item.Quantity).ToString("C")</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+    <h4>Total: @Model.MenuItems.Sum(i => i.MenuItemPrice * i.Quantity).ToString("C")</h4>
+</div>

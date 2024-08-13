@@ -1,355 +1,355 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DiningSystem.bundle.scp.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\DiningSystem.bundle.scp.css",
       "PackagePath": "staticwebassets\\DiningSystem.bundle.scp.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\audio\\zen-tone-high-202554.mp3",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\audio\\zen-tone-high-202554.mp3",
       "PackagePath": "staticwebassets\\css\\audio\\zen-tone-high-202554.mp3"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\AllYouCanEat.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\AllYouCanEat.png",
       "PackagePath": "staticwebassets\\css\\images\\AllYouCanEat.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\DiningLogo.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\DiningLogo.png",
       "PackagePath": "staticwebassets\\css\\images\\DiningLogo.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\KFC.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\KFC.png",
       "PackagePath": "staticwebassets\\css\\images\\KFC.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\banner_12.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\banner_12.jpg",
       "PackagePath": "staticwebassets\\css\\images\\banner_12.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\banner_5.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\banner_5.jpg",
       "PackagePath": "staticwebassets\\css\\images\\banner_5.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\eatHealthy.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\eatHealthy.png",
       "PackagePath": "staticwebassets\\css\\images\\eatHealthy.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\first.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\first.jpg",
       "PackagePath": "staticwebassets\\css\\images\\first.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\foodbreak.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\foodbreak.png",
       "PackagePath": "staticwebassets\\css\\images\\foodbreak.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\fork.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\fork.png",
       "PackagePath": "staticwebassets\\css\\images\\fork.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\forkandspoon.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\forkandspoon.png",
       "PackagePath": "staticwebassets\\css\\images\\forkandspoon.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\fourth.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\fourth.jpg",
       "PackagePath": "staticwebassets\\css\\images\\fourth.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\ginsoy.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\ginsoy.png",
       "PackagePath": "staticwebassets\\css\\images\\ginsoy.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\logo_S.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\logo_S.png",
       "PackagePath": "staticwebassets\\css\\images\\logo_S.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\resLogo.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\resLogo.png",
       "PackagePath": "staticwebassets\\css\\images\\resLogo.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\second.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\second.jpg",
       "PackagePath": "staticwebassets\\css\\images\\second.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slide1.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slide1.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slide1.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slide2.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slide2.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slide2.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slide3.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slide3.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slide3.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider-1.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider-1.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slider-1.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider-2.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider-2.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slider-2.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider-3.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider-3.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slider-3.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider1.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider1.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slider1.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider2.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider2.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slider2.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider3.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider3.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slider3.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider4.jpg",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\slider4.jpg",
       "PackagePath": "staticwebassets\\css\\images\\slider4.jpg"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\spoon.png",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\images\\spoon.png",
       "PackagePath": "staticwebassets\\css\\images\\spoon.png"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\css\\site.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\favicon.ico",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\js\\site.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\LICENSE",
       "PackagePath": "staticwebassets\\lib\\bootstrap"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery\\LICENSE.txt",
       "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery\\dist\\jquery.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
     },
     {
-      "Id": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "Id": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {

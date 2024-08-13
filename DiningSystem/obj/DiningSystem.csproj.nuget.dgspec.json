@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\DiningSystem.csproj": {}
+    "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\DiningSystem.csproj": {}
   },
   "projects": {
-    "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\DiningSystem.csproj": {
+    "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\DiningSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\DiningSystem.csproj",
+        "projectUniqueName": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\DiningSystem.csproj",
         "projectName": "DiningSystem",
-        "projectPath": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\DiningSystem.csproj",
-        "packagesPath": "C:\\Users\\whyy\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\whyy\\source\\repos\\DiningSystem\\DiningSystem\\obj\\",
+        "projectPath": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\DiningSystem.csproj",
+        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\hp\\OneDrive\\Desktop\\smartds\\DiningSystem\\DiningSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\whyy\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -135,7 +136,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
